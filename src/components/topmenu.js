@@ -1,5 +1,6 @@
 import React from "react"
 import { Link, graphql, StaticQuery } from "gatsby"
+import "./topmenu.css"
 
 
 const TopMenu = () => (
@@ -25,7 +26,7 @@ const TopMenu = () => (
       }
     `}
     render={data => (
-        <div id="topMenu">
+        <div id="top-menu">
         {data.allPrismicTopmenu.edges.map(document => (
             <ul>
                 {document.node.data.menu_links.map(list => (

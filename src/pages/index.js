@@ -12,32 +12,30 @@ const Index = ({data}) => {
                 <div>
                     {document.node.data.homepage_banner.map(doc => (
                        
-                        <div
+                        <header
                           style={{
                             backgroundImage: `url(${doc.image.url})`,
                             backgroundPosition: `center`,
                             backgroundSize: `cover`,
                             backgroundRepeat: `no-repeat`,
-                            margin: `0 auto`,
-                            maxWidth: 1200,
+                            maxWidth: `100%`,
                             height: 400,
-                            padding: `0px 1.0875rem 1.45rem`,
-                            paddingTop: 0,
                             color: `#fff`,
                           }}
                         >
-                            <h2>{doc.title.text}</h2>
-                            
-                            <TopMenu />
-
-                            <p>{doc.tagline.text}</p>
-
-                            <button>
-                              <Link to={`/${doc.button_link.uid}`}>{doc.button_label.text}</Link>
-                            </button>
-                            
-
-                        </div>
+                        <div id="header-parts">
+                            <div id="title-menu">
+                                <h2>{doc.title.text}</h2> 
+                                <TopMenu />
+                            </div>
+                            <div id="intro">
+                              <p id="header-text">{doc.tagline.text}</p>
+                              <button id="header-button">
+                                <Link to={`/${doc.button_link.uid}`}>{doc.button_label.text}</Link>
+                              </button>
+                            </div>
+                          </div>
+                        </header>
                     ))}   
                      <main 
                         style={{
