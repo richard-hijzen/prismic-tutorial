@@ -3,7 +3,7 @@ import { Link, graphql } from "gatsby"
 import TopMenu from "../components/topmenu"
 import Footer from "../components/footer"
 
-import "../styles/app.css"
+import "../styles/app.scss"
 
 const Index = ({data}) => {
     return (
@@ -31,7 +31,7 @@ const Index = ({data}) => {
                             <div id="intro">
                               <p id="header-text">{doc.tagline.text}</p>
                               <button id="header-button">
-                                <Link to={`/${doc.button_link.uid}`}>{doc.button_label.text}</Link>
+                                <Link to={`/${doc.button_link.slug}`}>{doc.button_label.text}</Link>
                               </button>
                             </div>
                           </div>
@@ -84,7 +84,7 @@ export const indexQuery = graphql`
                     text
                   }
                   button_link {
-                    uid
+                    slug
                   }
                   tagline {
                     text
