@@ -16,6 +16,7 @@
     "gatsby": "^2.10.0",
     "gatsby-image": "^2.2.4",
     "gatsby-plugin-manifest": "^2.2.1",
+    "gatsby-plugin-offline": "^2.2.0",
     "gatsby-plugin-sass": "^2.1.0",
     "gatsby-plugin-sharp": "^2.2.2",
     "gatsby-source-prismic": "^2.3.0-alpha.3",
