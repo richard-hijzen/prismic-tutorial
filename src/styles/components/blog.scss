@@ -15,7 +15,7 @@
             margin: 60px 0;
 
             #article-intro {
-                padding: 40px 15px;
+                padding: 40px 25px;
                 background: #fff;
 
                 h2 {
@@ -73,6 +73,25 @@
                 grid-row-start: 2;
                 grid-row-end: 4;
                 border-radius: 0 5px 5px 5px;
+            }
+        }
+
+        li:nth-child(2n) {
+            #article-intro {
+                grid-column-start: 2;
+                grid-row-start: 2;
+                grid-row-end: 4;
+                border-radius: 0 5px 5px 5px;
+            }
+
+            .gatsby-image-wrapper {
+                grid-column-start: 1;
+                grid-column-end: 2;
+                grid-row-start: 1;
+                grid-row-end: 3;
+                border-radius: 5px 5px 0 5px;
+
+
             }
         }
     }
