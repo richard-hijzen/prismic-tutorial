@@ -30,10 +30,10 @@ module.exports = {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `Estate in Olanda`,
-        short_name: `Estate Ola`,
+        short_name: `Olanda`,
         start_url: `/`,
-        background_color: `#f7f0eb`,
-        theme_color: `#a2466c`,
+        background_color: `#3abcda`,
+        theme_color: `#3abcda`,
         display: `standalone`,
         icon: `src/images/summer.png`
       },
