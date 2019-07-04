@@ -17,7 +17,7 @@ const TopMenu = () => (
                   text
                 }
                 link {
-                  slug
+                  url
                 }
               }
             }
@@ -31,8 +31,8 @@ const TopMenu = () => (
         {data.allPrismicTopmenu.edges.map(document => (
             <ul key={document.node.id}>
                 {document.node.data.menu_links.map(list => (
-                    <li key={list.link.slug}>  
-                    <Link to={`/${list.link.slug}`}>{list.label.text}</Link>                 
+                    <li key={list.link.url}>  
+                    <Link to={list.link.url}>{list.label.text}</Link>                 
                     </li>
                 ))}
                 
