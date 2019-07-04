@@ -102,3 +102,30 @@ header {
         }
     }
 }
+
+#blog-single-header {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+
+    #top-menu {
+        justify-content: flex-end;
+    }
+
+    h1 {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+#blog-single-main {
+    max-width: 960px;
+    margin: 0 auto;
+
+    iframe {
+        width: 100%;
+        max-width: 960px;
+        height: -webkit-fill-available;
+        max-height: 500px;
+    }
+}

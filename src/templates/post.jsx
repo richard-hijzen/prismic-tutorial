@@ -1,12 +1,21 @@
 import React from "react"
 import { graphql } from "gatsby"
+import TopMenu from "../components/topmenu"
+import Img from 'gatsby-image'
+import "../styles/app.scss"
 
 const Post = ({ data: { prismicPost } }) => {
   const { data } = prismicPost
   return (
     <React.Fragment>
-      <h1>{data.title.text}</h1>
-      <div dangerouslySetInnerHTML={{ __html: data.content.html }} />
+      <header id="blog-single-header">
+        <TopMenu />
+        <h1>{data.title.text}</h1>
+        <Img fluid={data.image.localFile.childImageSharp.fluid}/>
+      </header>
+      <main id="blog-single-main">
+        <div dangerouslySetInnerHTML={{ __html: data.content.html }} />
+      </main>
     </React.Fragment>
   )
 }
@@ -23,6 +32,15 @@ export const pageQuery = graphql`
         }
         content {
           html
+        }
+        image {
+          localFile {
+            childImageSharp {
+              fluid(maxHeight: 400, maxWidth: 960, quality: 90) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
         }
       }
     }
