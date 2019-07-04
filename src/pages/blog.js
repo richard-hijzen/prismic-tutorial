@@ -2,7 +2,7 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import TopMenu from "../components/topmenu"
 import Img from 'gatsby-image'
-import "../styles/app.scss"
+import "../styles/components/blog.scss"
 
 const Index = ({data}) => {
     return (

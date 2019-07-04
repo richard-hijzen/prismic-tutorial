@@ -64,45 +64,6 @@ header {
     }
 }
 
-#blog-header {
-    .gatsby-image-wrapper {
-        width: 1200px;
-        max-width: 100%;
-    }   
-}
-
-#blog-page {
-    margin: 0 auto;
-    max-width: 960px;
-    padding: 0px 1.0875rem 1.45rem;
-    padding-top: 0;
-
-    ul {
-        list-style: none;
-
-        li {
-            display: grid;
-            grid-template-columns: 50% 50%;
-            grid-template-rows: 150px 150px 150px;
-            border-radius: 5px;
-            margin: 60px 0;
-
-            #article-intro {
-                padding: 40px 15px;
-                background: #fff;
-                grid-row-start: 1;
-                grid-row-end: 3;
-            }
-
-            .gatsby-image-wrapper {
-                grid-column-start: 2;
-                grid-row-start: 2;
-                grid-row-end: 4;
-            }
-        }
-    }
-}
-
 #blog-single-header {
     max-width: 1200px;
     margin: 0 auto;
