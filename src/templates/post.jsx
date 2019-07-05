@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
-import TopMenu from "../components/topmenu"
+import TitleMenu from "../components/titleMenu"
 import Img from 'gatsby-image'
 import "../styles/app.scss"
 
@@ -9,7 +9,7 @@ const Post = ({ data: { prismicPost } }) => {
   return (
     <React.Fragment>
       <header id="blog-single-header">
-        <TopMenu />
+        <TitleMenu />
         <h1>{data.title.text}</h1>
         <Img fluid={data.image.localFile.childImageSharp.fluid}/>
       </header>
