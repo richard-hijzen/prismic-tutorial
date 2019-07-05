@@ -1,6 +1,6 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-import TopMenu from "../components/topmenu"
+import TitleMenu from "../components/titleMenu"
 import Footer from "../components/footer"
 
 import "../styles/app.scss"
@@ -24,10 +24,7 @@ const Index = ({data}) => {
                           }}
                         >
                         <div id="header-parts">
-                            <div id="title-menu">
-                                <h2>{doc.title.text}</h2> 
-                                <TopMenu />
-                            </div>
+                            <TitleMenu />
                             <div id="intro">
                               <p id="header-text">{doc.tagline.text}</p>
                               <button id="header-button">
