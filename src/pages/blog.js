@@ -19,10 +19,16 @@ const Index = ({data}) => {
               {data.allPrismicPost.edges.map(document => (
               <li key={document.node.uid}>
               <div id="article-intro">
+
                 <h2>
                   <Link to={`/${document.node.uid}`}>{document.node.data.title.text}</Link>
                 </h2>
                 <p>{document.node.data.summary.text}</p>
+
+                <div id="read-more">
+                  <p><Link to={`/${document.node.uid}`}>Scopri di piu</Link></p>
+                </div>
+                
               </div>
                   <Img fluid={document.node.data.image.localFile.childImageSharp.fluid}/>                  
               </li>
