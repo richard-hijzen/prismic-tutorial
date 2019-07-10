@@ -27,9 +27,7 @@ const Index = ({data}) => {
                             <TitleMenu />
                             <div id="intro">
                               <p id="header-text">{doc.tagline.text}</p>
-                              <button id="header-button">
-                                <Link to={`/${doc.button_link.slug}`}>{doc.button_label.text}</Link>
-                              </button>
+                                <Link id="header-button" to={`/${doc.button_link.slug}`}>{doc.button_label.text}</Link>
                             </div>
                           </div>
                         </header>
