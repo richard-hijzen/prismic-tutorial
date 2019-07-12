@@ -95,7 +95,7 @@ const PostBody = ({ page }) => {
         <div className="back">
           <Link to="/">back</Link>
         </div>
-        {/* Render the edit button */}
+        {/* Render the title */}
         <h1 data-wio-id="page-title">
           { titled ? page.page_title.text : 'Untitled' }
         </h1>

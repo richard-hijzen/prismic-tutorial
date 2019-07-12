@@ -1,0 +1,16 @@
+.article-list {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 33.3%);
+    grid-auto-rows: auto;
+
+    .article-item {
+        margin: 10px;
+        background: #fff;
+        box-shadow: 0 1px 1px 1px rgba(0,0,0,.12);
+        border-radius: 5px;
+        font-size: 1.2rem;
+        display: flex;
+        flex-direction: column;
+    }
+}

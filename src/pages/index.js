@@ -2,69 +2,13 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import TitleMenu from "../components/titleMenu"
 import Footer from "../components/footer"
-
+import Img from 'gatsby-image'
 import "../styles/app.scss"
-
-const Index = ({data}) => {
-    return (
-        <div>
-            {data.allPrismicHomepage.edges.map(document => (
-                <div>
-                    {document.node.data.homepage_banner.map(doc => (
-                       
-                        <header
-                          style={{
-                            backgroundImage: `url(${doc.image.url})`,
-                            backgroundPosition: `center`,
-                            backgroundSize: `cover`,
-                            backgroundRepeat: `no-repeat`,
-                            maxWidth: `100%`,
-                            height: 400,
-                            color: `#fff`,
-                          }}
-                        >
-                        <div id="header-parts">
-                            <TitleMenu />
-                            <div id="intro">
-                              <p id="header-text">{doc.tagline.text}</p>
-                                <Link id="header-button" to={`/${doc.button_link.slug}`}>{doc.button_label.text}</Link>
-                            </div>
-                          </div>
-                        </header>
-                    ))}   
-                     <main 
-                        style={{
-                            margin: `0 auto`,
-                            maxWidth: 960,
-                            padding: `0px 1.0875rem 1.45rem`,
-                            paddingTop: 0,
-                          }}
-                      >     
-                        {document.node.data.page_content.map(main => (
-                          <div dangerouslySetInnerHTML={{ __html: main.primary.rich_text.html }} />
-                        ))} 
-                    </main>
-                </div>
-                
-       
-                
-            ))}
-
-
-            
-            
-            <Footer />
-        </div>
-    )
-}
-
-export default Index
+import "../styles/slices/listofarticles.scss"
 
 export const indexQuery = graphql`
   query IndexQuery {
-    allPrismicHomepage {
-        edges {
-          node {
+    prismicHomepage {
             id
             data {
               homepage_banner {
@@ -86,16 +30,140 @@ export const indexQuery = graphql`
                   }
               }
               page_content {
-                primary {
-                  rich_text {
-                    html
+                ... on PrismicHomepagePageContentTextSection {
+                  id
+                  slice_type
+                  primary {
+                    rich_text {
+                      html
+                    }
+                  }
+                }
+                ... on PrismicHomepagePageContentListOfArticles {
+                  id
+                  slice_type
+                  primary {
+                    title_of_section {
+                      html
+                    }
+                  }
+                  items {
+                    articles_to_link {
+                      uid
+                      document {
+                        data {
+                          image {
+                            localFile {
+                              childImageSharp {
+                                fluid(maxWidth: 400, maxHeight: 133) {
+                                  ...GatsbyImageSharpFluid
+                                }
+                              }
+                            }
+                          }
+                          summary {
+                            text
+                          }
+                          title {
+                            text
+                          }
+                        }
+                      }
+                    }
                   }
                 }
               }
             }
           }
         }
-      }
-  }
 `
+
+// Sort and display the different slice options
+const PostSlices = ({ slices }) => {
+  return slices.map((slice, index) => {
+    const res = (() => {
+      switch(slice.slice_type) {
+        case 'text_section': return (
+          <section key={ index } className="homepage-slice-wrapper">
+            <div dangerouslySetInnerHTML={{ __html: slice.primary.rich_text.html }} />
+          </section>
+        )
+
+        case 'list_of_articles': return (
+          <section key={ index } className="homepage-slice-wrapper">
+            <div dangerouslySetInnerHTML={{ __html: slice.primary.title_of_section.html }} />
+            <div className="article-list">
+            {slice.items.map(doc => (
+              	<article className="article-item">
+                  <h3>
+                  <Link to={`/${doc.articles_to_link.uid}`}>{doc.articles_to_link.document[0].data.title.text}</Link>
+                  </h3>
+                  <p>{doc.articles_to_link.document[0].data.summary.text}</p>
+                  <Img fluid={doc.articles_to_link.document[0].data.image.localFile.childImageSharp.fluid}/>
+                </article>
+            ))}
+            </div>
+          </section>
+        )
+
+        default: return
+      }
+    })();
+    return res;
+  })
+}
+
+// Display the title, menu and content of the Homepage
+const PostBody = ({ homepage }) => {
+  
+  return (
+    <div>
+
+      <header
+          style={{
+            backgroundImage: `url(${homepage.homepage_banner[0].image.url})`,
+            backgroundPosition: `center`,
+            backgroundSize: `cover`,
+            backgroundRepeat: `no-repeat`,
+            maxWidth: `100%`,
+            height: 400,
+            color: `#fff`,
+          }}
+        >
+        <div id="header-parts">
+            <TitleMenu />
+            <div id="intro">
+              <p id="header-text">{homepage.homepage_banner[0].tagline.text}</p>
+              <Link id="header-button" to={`/${homepage.homepage_banner[0].button_link.slug}`}>{homepage.homepage_banner[0].button_label.text}</Link>
+            </div>
+          </div>
+        </header>
+      {/* Go through the slices of the post and render the appropiate one */}
+      <main
+        style={{
+          width: 960,
+          maxWidth: `100%`,
+          margin: `0 auto`,
+        }}>
+        <PostSlices slices={ homepage.page_content } />
+      </main>
+    </div>
+  );
+}
+
+export default (props) => {
+  // Define the Post content returned from Prismic
+  const doc = props.data.prismicHomepage.data;
+
+  if(!doc) return null;
+
+  return(
+    <div>
+      <PostBody homepage={ doc } />
+      <Footer />
+    </div>
+  )
+}
+
+
 
