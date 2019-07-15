@@ -55,7 +55,7 @@ export const indexQuery = graphql`
                           image {
                             localFile {
                               childImageSharp {
-                                fluid(maxWidth: 400, maxHeight: 133) {
+                                fluid(maxWidth: 400, maxHeight: 250) {
                                   ...GatsbyImageSharpFluid
                                 }
                               }
@@ -90,16 +90,19 @@ const PostSlices = ({ slices }) => {
         )
 
         case 'list_of_articles': return (
-          <section key={ index } className="homepage-slice-wrapper">
-            <div dangerouslySetInnerHTML={{ __html: slice.primary.title_of_section.html }} />
+          <section key={ index } className="homepage-slice-wrapper-article-list">
+            <div id="wrapper-intro" dangerouslySetInnerHTML={{ __html: slice.primary.title_of_section.html }} />
             <div className="article-list">
             {slice.items.map(doc => (
               	<article className="article-item">
+                  <Img fluid={doc.articles_to_link.document[0].data.image.localFile.childImageSharp.fluid}/>
                   <h3>
                   <Link to={`/${doc.articles_to_link.uid}`}>{doc.articles_to_link.document[0].data.title.text}</Link>
                   </h3>
                   <p>{doc.articles_to_link.document[0].data.summary.text}</p>
-                  <Img fluid={doc.articles_to_link.document[0].data.image.localFile.childImageSharp.fluid}/>
+                  <div id="read-more">
+                  <p><Link to={`/${doc.articles_to_link.uid}`}>Scopri di piu</Link></p>
+                </div>
                 </article>
             ))}
             </div>
