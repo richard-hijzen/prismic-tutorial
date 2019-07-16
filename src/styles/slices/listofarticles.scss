@@ -19,23 +19,29 @@
         display: flex;
         flex-direction: column;
 
-        h3 {
-            padding: 0 15px;
-            margin-bottom: 0;
+        .listcontent {
+            display: flex;
+            flex-direction: column;
 
-            a {
-                text-decoration: none;
-                color: #000;
+            h3 {
+                padding: 0 15px;
+                margin: 15px 0;
+
+                a {
+                    text-decoration: none;
+                    color: #000;
+                }
             }
-        }
 
-        p {
-            padding: 0 15px;
-        }
+            p {
+                padding: 0 15px;
+            }
 
-        #read-more {
-            padding-bottom: 20px;
+            #read-more {
+                margin-top: 10px;
+                padding-bottom: 20px;
 
+            }
         }
     }
 }

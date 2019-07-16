@@ -3,6 +3,7 @@ import { Link, graphql } from "gatsby"
 import TitleMenu from "../components/titleMenu"
 import Footer from "../components/footer"
 import Img from 'gatsby-image'
+import { ImageGallery } from '../components/slices'
 import "../styles/app.scss"
 import "../styles/slices/listofarticles.scss"
 
@@ -55,7 +56,7 @@ export const indexQuery = graphql`
                           image {
                             localFile {
                               childImageSharp {
-                                fluid(maxWidth: 400, maxHeight: 250) {
+                                fluid(maxWidth: 400, maxHeight: 225) {
                                   ...GatsbyImageSharpFluid
                                 }
                               }
@@ -69,6 +70,29 @@ export const indexQuery = graphql`
                           }
                         }
                       }
+                    }
+                  }
+                }
+                ... on PrismicHomepagePageContentImageGallery {
+                  id
+                  slice_type
+                  primary {
+                    name_of_the_gallery {
+                      html
+                    }
+                  }
+                  items {
+                    gallery_image {
+                      localFile {
+                        childImageSharp {
+                          fluid(maxWidth: 960, maxHeight: 400) {
+                            ...GatsbyImageSharpFluid
+                          }
+                        }
+                      }
+                    }
+                    image_captions {
+                      text
                     }
                   }
                 }
@@ -96,16 +120,24 @@ const PostSlices = ({ slices }) => {
             {slice.items.map(doc => (
               	<article className="article-item">
                   <Img fluid={doc.articles_to_link.document[0].data.image.localFile.childImageSharp.fluid}/>
-                  <h3>
-                  <Link to={`/${doc.articles_to_link.uid}`}>{doc.articles_to_link.document[0].data.title.text}</Link>
-                  </h3>
-                  <p>{doc.articles_to_link.document[0].data.summary.text}</p>
-                  <div id="read-more">
-                  <p><Link to={`/${doc.articles_to_link.uid}`}>Scopri di piu</Link></p>
-                </div>
+                  <div className="listcontent">
+                    <h3>
+                    <Link to={`/${doc.articles_to_link.uid}`}>{doc.articles_to_link.document[0].data.title.text}</Link>
+                    </h3>
+                    <p>{doc.articles_to_link.document[0].data.summary.text}</p>
+                    <div id="read-more">
+                    <p><Link to={`/${doc.articles_to_link.uid}`}>Scopri di piu</Link></p>
+                    </div>
+                  </div>
                 </article>
             ))}
             </div>
+          </section>
+        )
+
+        case 'image_gallery': return (
+          <section key={ index } className="homepage-slice-wrapper-gallery">
+            { <ImageGallery slice={ slice } /> }
           </section>
         )
 
