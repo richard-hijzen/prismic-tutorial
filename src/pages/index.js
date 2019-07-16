@@ -4,6 +4,7 @@ import TitleMenu from "../components/titleMenu"
 import Footer from "../components/footer"
 import Img from 'gatsby-image'
 import { ImageGallery } from '../components/slices'
+import '../styles/bootstrap/bootstrap.min.css'
 import "../styles/app.scss"
 import "../styles/slices/listofarticles.scss"
 
