@@ -1,23 +1,23 @@
 import React from "react"
 import Img from 'gatsby-image'
-import Carousel from 'react-bootstrap/Carousel'
+import Slider from "react-slick"
 
 
 const ImageGallery = ({ slice }) => {
     return (
         <>
             <div id="gallery-intro" dangerouslySetInnerHTML={{ __html: slice.primary.name_of_the_gallery.html }} />
-            <Carousel>
+            <Slider>
               {slice.items.map(doc => (
-                <Carousel.Item>
+                <div>
                     <Img className="d-block w-100" 
                     fluid={doc.gallery_image.localFile.childImageSharp.fluid}/>
-                    <Carousel.Caption>
+                    
                         <p>{doc.image_captions.text}</p>
-                    </Carousel.Caption>
-                </Carousel.Item>
+                    
+                </div>
               ))}
-            </Carousel>
+            </Slider>
         </>
     )
 }
