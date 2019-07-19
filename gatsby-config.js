@@ -38,6 +38,7 @@ module.exports = {
         icon: `src/images/summer.png`
       },
     },
+    `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sass`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
