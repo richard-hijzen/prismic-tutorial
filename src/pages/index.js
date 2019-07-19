@@ -7,7 +7,7 @@ import { ImageGallery } from '../components/slices'
 import '../styles/bootstrap/bootstrap.min.css'
 import "../styles/app.scss"
 import "../styles/slices/listofarticles.scss"
-import "../styles/slices/imagegallery.scss"
+
 
 export const indexQuery = graphql`
   query IndexQuery {
