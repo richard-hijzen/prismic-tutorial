@@ -3,6 +3,7 @@ import { Link, graphql } from "gatsby"
 import TitleMenu from "../components/titleMenu"
 import Footer from "../components/footer"
 import Img from 'gatsby-image'
+import {Helmet} from "react-helmet"
 import { ImageGallery } from '../components/slices'
 import '../styles/bootstrap/bootstrap.min.css'
 import "../styles/app.scss"
@@ -195,10 +196,14 @@ export default (props) => {
   if(!doc) return null;
 
   return(
-    <div>
+    <>
+      <Helmet>
+            <link rel="stylesheet" type="text/css" charset="UTF-8" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" />
+            <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
+      </Helmet>
       <PostBody homepage={ doc } />
       <Footer />
-    </div>
+    </>
   )
 }
 
