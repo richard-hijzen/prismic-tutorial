@@ -1,5 +1,5 @@
 import React from "react"
-import TopMenu from "../components/topmenu"
+import TopMenu from "../components/topMenu"
 import Footer from "../components/footer"
 
 import "../styles/app.scss"
