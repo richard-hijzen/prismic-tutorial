@@ -1,6 +1,6 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-import TopMenu from "../components/topMenu"
+import TopMenu from "../components/topmenu"
 import Img from 'gatsby-image'
 import "../styles/components/blog.scss"
 

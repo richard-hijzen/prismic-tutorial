@@ -1,6 +1,6 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-import TopMenu from "../components/topMenu"
+import TopMenu from "../components/topmenu"
 import Footer from "../components/footer"
 import Img from 'gatsby-image'
 import {Helmet} from "react-helmet"
