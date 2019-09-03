@@ -1,6 +1,6 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-import TitleMenu from "../components/titleMenu"
+import TopMenu from "../components/topMenu"
 import Footer from "../components/footer"
 import Img from 'gatsby-image'
 import {Helmet} from "react-helmet"
@@ -169,7 +169,7 @@ const PostBody = ({ homepage }) => {
           }}
         >
         <div id="header-parts">
-            <TitleMenu />
+            <TopMenu />
             <div id="intro">
               <p id="header-text">{homepage.homepage_banner[0].tagline.text}</p>
               <Link id="header-button" to={`/${homepage.homepage_banner[0].button_link.slug}`}>{homepage.homepage_banner[0].button_label.text}</Link>
