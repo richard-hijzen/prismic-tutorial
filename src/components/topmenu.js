@@ -7,6 +7,7 @@ import "./topmenu.scss"
 
 
 const TopMenu = () => (
+  
 <StaticQuery
     query={graphql`
       query topMenuQuery {
@@ -29,8 +30,9 @@ const TopMenu = () => (
       }
       }
     `}
+
     render={data => (
-      <Navbar expand="lg" variant="dark">
+      <Navbar id="mainNav" expand="lg" variant="dark">
         <Navbar.Brand><TitleMenu /></Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end"> 
