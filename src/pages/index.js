@@ -1,6 +1,6 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-import TopMenu from "../components/topmenu"
+import HeaderNav from "../components/headernav"
 import Footer from "../components/footer"
 import Img from 'gatsby-image'
 import {Helmet} from "react-helmet"
@@ -169,7 +169,7 @@ const PostBody = ({ homepage }) => {
           }}
         >
         <div id="header-parts">
-            <TopMenu />
+            <HeaderNav />
             <div id="intro">
               <p id="header-text">{homepage.homepage_banner[0].tagline.text}</p>
               <Link id="header-button" to={`/${homepage.homepage_banner[0].button_link.slug}`}>{homepage.homepage_banner[0].button_label.text}</Link>
@@ -189,7 +189,7 @@ const PostBody = ({ homepage }) => {
   );
 }
 
-export default (props) => {
+const App = (props) => {
   // Define the Post content returned from Prismic
   const doc = props.data.prismicHomepage.data;
 
@@ -208,4 +208,4 @@ export default (props) => {
 }
 
 
-
+export default App
