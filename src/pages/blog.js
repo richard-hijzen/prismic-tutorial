@@ -1,6 +1,6 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-import TopMenu from "../components/topmenu"
+import HeaderNav from "../components/headernav"
 import Img from 'gatsby-image'
 import "../styles/components/blog.scss"
 
@@ -10,7 +10,7 @@ const Index = ({data}) => {
         {data.allPrismicBlogpage.edges.map(document => (
           <header key={document.node.id} id="blog-header">
             <h1>{document.node.data.title.text}</h1>
-            <TopMenu />
+            <HeaderNav />
             <Img fluid={document.node.data.image.localFile.childImageSharp.fluid}/>
           </header>
         ))}

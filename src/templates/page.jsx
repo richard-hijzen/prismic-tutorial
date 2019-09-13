@@ -1,6 +1,7 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby' 
 import { ImageCaption, Quote, Text } from '../components/slices'
+import HeaderNav from "../components/headernav"
 
 /*const Page = ({ data: { prismicPage } }) => {
   const { data } = prismicPage
@@ -113,9 +114,10 @@ export default (props) => {
   if(!doc) return null;
 
   return(
-    <div>
+    <>
+      <HeaderNav />
       <PostBody page={ doc } />
-    </div>
+    </>
   )
 }
 
