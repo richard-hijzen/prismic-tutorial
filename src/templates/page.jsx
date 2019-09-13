@@ -1,7 +1,8 @@
 import React from 'react'
-import { graphql, Link } from 'gatsby' 
+import { graphql } from 'gatsby' 
 import { ImageCaption, Quote, Text } from '../components/slices'
 import HeaderNav from "../components/headernav"
+import ContactForm from "../components/contactform"
 
 /*const Page = ({ data: { prismicPage } }) => {
   const { data } = prismicPage
@@ -93,9 +94,6 @@ const PostBody = ({ page }) => {
   return (
     <div>
       <div className="container post-header">
-        <div className="back">
-          <Link to="/">back</Link>
-        </div>
         {/* Render the title */}
         <h1 data-wio-id="page-title">
           { titled ? page.page_title.text : 'Untitled' }
@@ -107,16 +105,27 @@ const PostBody = ({ page }) => {
   );
 }
 
+const PostForm = ({pageid}) => {
+  if(pageid !== "contact-us") return null;
+
+  return(
+    <ContactForm />
+  )
+}
+
 export default (props) => {
   // Define the Post content returned from Prismic
   const doc = props.data.prismicPage.data;
+  const pageId = props.data.prismicPage.uid;
 
   if(!doc) return null;
+  
 
   return(
     <>
       <HeaderNav />
       <PostBody page={ doc } />
+      <PostForm pageid={pageId} />
     </>
   )
 }
