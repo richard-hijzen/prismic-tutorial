@@ -1,4 +1,5 @@
 import React from 'react'
+import "./contactform.scss"
 
 
 function encode(data) {
@@ -30,7 +31,7 @@ export default function Contact() {
   }
 
   return (
-    <>
+    <div className="contactform">
       <h1>Contact</h1>
       <form
         name="contact"
@@ -71,6 +72,6 @@ export default function Contact() {
           <button type="submit">Send</button>
         </p>
       </form>
-    </>
+    </div>
   )
 }
