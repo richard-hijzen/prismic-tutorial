@@ -1,4 +1,48 @@
 .contactform {
     display: grid;
     justify-content: center;
+
+    h1 {
+        display: flex;
+        justify-content: center;
+    }
+
+    form{
+
+        p {
+
+            label {
+               
+                input,
+                textarea {
+                    border: none;
+                }
+
+            }
+        }
+    }
+
+}
+
+@media screen and (min-width: 990px) {
+    .contactform {
+    
+        form{
+    
+            p {
+    
+                label {
+                    display: flex;
+                   
+                    input,
+                    textarea {
+                        margin-left: 10px;
+                        border: none;
+                    }
+    
+                }
+            }
+        }
+    
+    }
 }
