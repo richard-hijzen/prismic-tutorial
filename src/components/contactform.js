@@ -66,7 +66,7 @@ export default function Contact() {
             <label for="textarea">
               Message:
             </label>
-            <textarea id="textarea" name="message" onChange={handleChange} />
+            <textarea id="textarea" name="message" rows="5" onChange={handleChange} />
           </p>
           <p className="submit-button">
             <button type="submit">Submit</button>
