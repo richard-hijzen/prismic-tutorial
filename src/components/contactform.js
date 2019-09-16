@@ -31,47 +31,46 @@ export default function Contact() {
   }
 
   return (
-    <div className="contactform">
-      <h1>Contact</h1>
-      <form
-        name="contact"
-        method="post"
-        data-netlify="true"
-        data-netlify-honeypot="bot-field"
-        onSubmit={handleSubmit}
-      >
-        {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
-        <input type="hidden" name="form-name" value="contact" />
-        <p hidden>
-          <label>
-            Don’t fill this out: <input name="bot-field" onChange={handleChange} />
-          </label>
-        </p>
-        <p>
-          <label>
-            Your name:
-            <br />
-            <input type="text" name="name" onChange={handleChange} />
-          </label>
-        </p>
-        <p>
-          <label>
-            Your email:
-            <br />
-            <input type="email" name="email" onChange={handleChange} />
-          </label>
-        </p>
-        <p>
-          <label>
-            Message:
-            <br />
-            <textarea name="message" onChange={handleChange} />
-          </label>
-        </p>
-        <p>
-          <button type="submit">Send</button>
-        </p>
-      </form>
+    <div className="contact-container">
+      <div className="contactform">
+        <h1>Contact</h1>
+        <form
+          name="contact"
+          method="post"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+          onSubmit={handleSubmit}
+        >
+          {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
+          <input type="hidden" name="form-name" value="contact" />
+          <p hidden>
+            <label>
+              Don’t fill this out: <input name="bot-field" onChange={handleChange} />
+            </label>
+          </p>
+          <p>
+            <label for="name">
+              Your name:
+            </label>
+            <input type="text" id="name" name="name" onChange={handleChange} />
+          </p>
+          <p>
+            <label for="email">
+              Your email:
+            </label>
+            <input type="email" id="email" name="email" onChange={handleChange} />
+          </p>
+          <p>
+            <label for="textarea">
+              Message:
+            </label>
+            <textarea id="textarea" name="message" onChange={handleChange} />
+          </p>
+          <p className="submit-button">
+            <button type="submit">Submit</button>
+          </p>
+        </form>
+      </div>
     </div>
   )
 }
