@@ -1,5 +1,7 @@
 import React from 'react'
 import "./contactform.scss"
+import contactlogo from "../images/contact.jpg" 
+
 
 
 function encode(data) {
@@ -32,8 +34,8 @@ export default function Contact() {
 
   return (
     <div className="contact-container">
-      <div className="contactform">
-        <h1>Contact</h1>
+      <div className="contactform container">
+        <img src={contactlogo} alt="contact" />
         <form
           name="contact"
           method="post"
