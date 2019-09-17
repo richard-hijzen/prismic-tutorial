@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import HeaderNav from "../components/headernav"
+import CommentForm from "../components/commentform"
 import Img from 'gatsby-image'
 import "../styles/app.scss"
 
@@ -14,7 +15,8 @@ const Post = ({ data: { prismicPost } }) => {
         <Img fluid={data.image.localFile.childImageSharp.fluid}/>
       </header>
       <main id="blog-single-main">
-        <div dangerouslySetInnerHTML={{ __html: data.content.html }} />  
+        <div dangerouslySetInnerHTML={{ __html: data.content.html }} />
+        <CommentForm />  
       </main>
     </React.Fragment>
   )
