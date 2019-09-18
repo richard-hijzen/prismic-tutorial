@@ -10,20 +10,43 @@
         }
     }
 
-    .nav-items {
+    .hide {
         display: flex;
-        list-style: none;
-
-        li a {
-            color: #fff;
-        }
     }
+
+        .nav-items {
+            display: flex;
+            list-style: none;
+
+            li a {
+                color: #fff;
+            }
+        }
+
+        .signin-up {
+            margin: 0 10px;
+            align-self: center;
+
+            .netlify-identity-menu {
+                display: flex;
+                list-style: none;
+                padding-left: 10px;
+
+                .netlify-identity-item {
+                    margin: 0 5px;
+                    a {
+                        color: #fff;
+                    }
+                }
+            }
+        }
 
     #responsive-menu {
         display: none;
         background-color: transparent;
         border: 0.3px solid #fff;
         width: 56px;
+        height: 50px;
         svg {
             width: 32px;
             fill: #fff;
@@ -55,6 +78,7 @@
             overflow: hidden;
         }
 
+
         .nav-items {
             display: block;
             margin-top: 60px;
@@ -63,6 +87,11 @@
                 border-bottom: 0.3px solid;
                 width: 80%;
             }
+        }
+
+        .signin-up {
+            display: inline-flex;
+            padding-left: 30px;
         }
     }
 
