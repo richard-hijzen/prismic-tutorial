@@ -7,7 +7,7 @@ function encode(data) {
     .join('&')
 }
 
-export default function Comment() {
+export default function CommentForm(props) {
   const [state, setState] = React.useState({})
 
   const handleChange = (e) => {
@@ -25,50 +25,53 @@ export default function Comment() {
         ...state,
       }),
     })
-      .then(() => alert("success!"))
+      .then(() => alert('success'))
       .catch((error) => alert(error))
   }
 
   return (
-    <div className="commentform-container">
-      <div className="commentform container">
-        <form
-          name="comment"
-          method="post"
-          data-netlify="true"
-          data-netlify-honeypot="bot-field"
-          onSubmit={handleSubmit}
-        >
-          {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
-          <input type="hidden" name="form-name" value="comment" />
-          <p hidden>
-            <label>
-              Don’t fill this out: <input name="bot-field" onChange={handleChange} />
-            </label>
-          </p>
-          <p>
-            <label htmlFor="name">
-              Your name:
-            </label>
-            <input type="text" id="name" name="name" onChange={handleChange} />
-          </p>
-          <p>
-            <label htmlFor="email">
-              Your email:
-            </label>
-            <input type="email" id="email" name="email" onChange={handleChange} />
-          </p>
-          <p>
-            <label htmlFor="textarea">
-              Message:
-            </label>
-            <textarea id="textarea" name="message" rows="5" onChange={handleChange} />
-          </p>
-          <p className="submit-button">
-            <button type="submit">Submit</button>
-          </p>
-        </form>
-      </div>
-    </div>
+    <>
+      <h1>Comments</h1>
+      <form
+        name={props.id}
+        method="post"
+        action="/thanks/"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+        onSubmit={handleSubmit}
+      >
+        {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
+        <input type="hidden" name="form-name" value={props.id} />
+        <p hidden>
+          <label>
+            Don’t fill this out: <input name="bot-field" onChange={handleChange} />
+          </label>
+        </p>
+        <p>
+          <label>
+            Your name:
+            <br />
+            <input type="text" name="name" onChange={handleChange} />
+          </label>
+        </p>
+        <p>
+          <label>
+            Your email:
+            <br />
+            <input type="email" name="email" onChange={handleChange} />
+          </label>
+        </p>
+        <p>
+          <label>
+            Message:
+            <br />
+            <textarea name="message" onChange={handleChange} />
+          </label>
+        </p>
+        <p>
+          <button type="submit">Send</button>
+        </p>
+      </form>
+    </>
   )
 }

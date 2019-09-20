@@ -6,7 +6,9 @@ import Img from 'gatsby-image'
 import "../styles/app.scss"
 
 const Post = ({ data: { prismicPost } }) => {
-  const { data } = prismicPost
+  const { data } = prismicPost;
+  const pageId = prismicPost.uid;
+
   return (
     <React.Fragment>
       <header id="blog-single-header">
@@ -16,7 +18,7 @@ const Post = ({ data: { prismicPost } }) => {
       </header>
       <main id="blog-single-main">
         <div dangerouslySetInnerHTML={{ __html: data.content.html }} />
-        <CommentForm />  
+        <CommentForm id={pageId} />  
       </main>
     </React.Fragment>
   )
