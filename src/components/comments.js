@@ -14,11 +14,16 @@ export default function Comments(props) {
         })
       });
 
+      if(!review) return null;
+
     return(
         <>
+            
             {review.map((o) =>
                 <p key={o.number}>{o.name}: {o.data.message}</p>
             )}
+            
+            
         </>
     )
 }
