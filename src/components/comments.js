@@ -12,10 +12,6 @@ export default function Comments(props) {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({
-                name: 'name',
-                message: 'message',
-              })
         })
         .then(x => x.json())
         .then(x => {
