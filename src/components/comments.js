@@ -14,8 +14,6 @@ export default function Comments(props) {
         })
       });
 
-      if(!review) return "<div>No comments yet</div>";
-
     return(
         <>
             
