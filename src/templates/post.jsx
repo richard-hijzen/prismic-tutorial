@@ -22,7 +22,7 @@ const Post = ({ data: { prismicPost } }) => {
         <div dangerouslySetInnerHTML={{ __html: data.content.html }} />
         <CommentForm id={pageId} />
         <ErrorBoundary>
-          <Comments id={pageId} />
+          <Comments form_id={pageId} />
         </ErrorBoundary>  
       </main>
     </React.Fragment>
