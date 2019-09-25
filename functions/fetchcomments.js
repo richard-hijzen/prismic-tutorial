@@ -20,7 +20,7 @@ exports.handler = function(event, context, callback) {
     };
     
     var queryToken = `access_token=${token}`;
-    var opts1 = Object.assign({}, options, { path: `/api/v1/sites/${process.env.site_id}/forms?${queryToken}`});
+    var opts1 = Object.assign({}, options, { path: `/api/v1/sites/${process.env.siteId}/forms?${queryToken}`});
 
     var req = https.request(opts1, function(res) {
 

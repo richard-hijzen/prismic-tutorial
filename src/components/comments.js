@@ -4,7 +4,7 @@ const NETLIFY_FUNC =
   'estate-olanda.netlify.com/.netlify/functions'
 
 export default function Comments(props) {
-    const [review, setReview] = useState([]);
+    const [review, setReview] = useState(["this is a test"]);
 
     useEffect(() => {
         fetch(`https://${NETLIFY_FUNC}/fetchcomments?id=${props.id}`)
@@ -14,7 +14,7 @@ export default function Comments(props) {
         })
       });
 
-      if(!review) return "<div>No comments yet</div>";
+      if(review.length == 0) return null;
 
     return(
         <>
