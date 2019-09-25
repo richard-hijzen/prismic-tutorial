@@ -12,6 +12,14 @@
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
   },
+    "scripts": {
+    "start": "react-scripts start",
+    "build": "run-p build:**",
+    "build:app": "react-scripts build",
+    "build:lambda": "netlify-lambda build ./",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
   "dependencies": {
     "gatsby": "^2.13.25",
     "gatsby-image": "^2.2.4",
@@ -35,6 +43,7 @@
     "react-slick": "^0.24.0"
   },
   "devDependencies": {
+    "netlify-lambda": "^1.4.5",
     "dotenv": "^8.0.0",
     "eslint-plugin-react-hooks": "^2.0.1",
     "prettier": "^1.18.2"
