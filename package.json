@@ -7,18 +7,11 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
+    "build:lambda": "netlify-lambda build ./",
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
-  },
-    "scripts": {
-    "start": "react-scripts start",
-    "build": "run-p build:**",
-    "build:app": "react-scripts build",
-    "build:lambda": "netlify-lambda build ./",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
   },
   "dependencies": {
     "gatsby": "^2.13.25",
