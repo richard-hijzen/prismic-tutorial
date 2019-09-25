@@ -8,7 +8,7 @@ export default function Comments(props) {
 
     useEffect(() => {
         fetch(`https://${NETLIFY_FUNC}/forms/${props.form_id}/submissions`, {
-            method: 'POST',
+            method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
             },
