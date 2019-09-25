@@ -3,7 +3,7 @@ import { graphql } from "gatsby"
 import HeaderNav from "../components/headernav"
 import CommentForm from "../components/commentform"
 import Comments from "../components/comments"
-import ErrorBoundary from "../components/errorboundary"
+import ErrorBoundary from "../components/ErrorBoundary"
 import Img from 'gatsby-image'
 import "../styles/app.scss"
 
