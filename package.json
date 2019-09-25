@@ -7,7 +7,6 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "build:lambda": "netlify-lambda build ./",
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
     "serve": "gatsby serve",
@@ -36,7 +35,6 @@
     "react-slick": "^0.24.0"
   },
   "devDependencies": {
-    "netlify-lambda": "^1.4.5",
     "dotenv": "^8.0.0",
     "eslint-plugin-react-hooks": "^2.0.1",
     "prettier": "^1.18.2"

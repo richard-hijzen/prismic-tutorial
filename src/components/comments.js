@@ -14,14 +14,11 @@ export default function Comments(props) {
         })
       });
 
+      if(!review) return "<div>No comments yet</div>";
+
     return(
         <>
-            
-            {review.map((o) =>
-                <p key={o.number}>{o.name}: {o.data.message}</p>
-            )}
-            
-            
+            <p>Comments in here</p>  
         </>
     )
 }
