@@ -34,12 +34,7 @@ const NETLIFY_FUNC =
             <h3 className="reviews">Reviews</h3>
   
             <div className="reviews__list">
-              {this.state.reviews.map(o => (
-                <p key={o.number}>
-                  <div className="review__name">{o.name}</div>
-                  <div>{o.data.message}</div>
-                </p>
-              ))}
+              test
             </div>
   
           </section>
