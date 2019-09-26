@@ -2,7 +2,7 @@ const https = require('https');
 
 exports.handler = function(event, context, callback) {
     var id = event.queryStringParameters.id;
-    var token = process.env.netlify_access_token;
+    var token = process.env.estate_olanda_comments;
 
     if(id == undefined){
         callback('A product id must be specified.', {
@@ -34,7 +34,7 @@ exports.handler = function(event, context, callback) {
         res.on('end', function () {
             body = JSON.parse(body);
 
-            var form = body.filter(x => x.name == `product-${id}`)[0];
+            var form = body.filter(x => x.name == `${id}`)[0];
             var opts2 = Object.assign({}, options, { path: `/api/v1/forms/${form.id}/submissions?${queryToken}`});
 
             var req2 = https.request(opts2, function(res2) {
