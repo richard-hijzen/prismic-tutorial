@@ -32,7 +32,7 @@ exports.handler = function(event, context, callback) {
         });
 
         res.on('end', function () {
-            body = JSON.parse(body);
+            body = JSON.parse(event.body);
 
             var form = body.filter(x => x.name == `${id}`)[0];
             var opts2 = Object.assign({}, options, { path: `/api/v1/forms/${form.id}/submissions?${queryToken}`});

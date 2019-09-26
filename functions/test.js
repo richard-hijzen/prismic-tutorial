@@ -1,6 +1,13 @@
 exports.handler = (event, context, callback) => {
-    callback(null, {
+  if (event.queryStringParameters && event.queryStringParameters.name) {
+    return {
       statusCode: 200,
-      body: 'No worries, all is working fine!'
-    })
+      body: JSON.stringify(
+        {
+          message: `Hi, ${event.queryStringParameters.name}!`
+        },
+        null,
+        2
+      )
+    };
   }
