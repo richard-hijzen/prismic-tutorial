@@ -2,7 +2,7 @@ const https = require('https');
 
 exports.handler = function(event, context, callback) {
     var id = event.queryStringParameters.id;
-    var token = process.env.APY_KEY;
+    var token = process.env.estate_olanda_comments;
 
     if(id == undefined){
         callback('A product id must be specified.', {
@@ -20,7 +20,7 @@ exports.handler = function(event, context, callback) {
     };
     
     var queryToken = `access_token=${token}`;
-    var opts1 = Object.assign({}, options, { path: `/api/v1/sites/${process.env.site_id}/forms?${queryToken}`});
+    var opts1 = Object.assign({}, options, { path: `/api/v1/sites/estate-olanda/forms?${queryToken}`});
 
     var req = https.request(opts1, function(res) {
 
