@@ -2,7 +2,7 @@ const https = require('https');
 
 exports.handler = function(event, context, callback) {
     var id = event.queryStringParameters.id;
-    var token = process.env.APY_KEY;
+    var token = process.env.siteId;
 
     if(id == undefined){
         callback('A product id must be specified.', {
