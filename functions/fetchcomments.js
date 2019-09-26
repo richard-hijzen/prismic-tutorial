@@ -2,7 +2,7 @@ const https = require('https');
 
 exports.handler = function(event, context, callback) {
     var id = event.queryStringParameters.id;
-    var token = process.env.estate_olanda_comments;
+    var token = process.env.API_KEY;
 
     if(id == undefined){
         callback('A product id must be specified.', {
