@@ -14,7 +14,7 @@ module.exports = {
       resolve: `gatsby-source-prismic`,
       options: {
         repositoryName: `prismictut`,
-        accessToken: `${process.env.API_KEY}`,
+        accessToken: `${process.env.netlify_access_token}`,
         linkResolver: ({ node, key, value }) => post => `/${post.uid}`,
       },
     },
