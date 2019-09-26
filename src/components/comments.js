@@ -1,7 +1,7 @@
 import React from 'react'
 
 const NETLIFY_FUNC =
-  'api.netlify.com/api/v1'
+  'estate-olanda.netlify.com/.netlify/functions'
 
   export default class Product extends React.Component {
     constructor(props) {
