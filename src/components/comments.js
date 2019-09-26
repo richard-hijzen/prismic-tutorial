@@ -3,7 +3,7 @@ import React from 'react'
 const NETLIFY_FUNC =
   'estate-olanda.netlify.com/.netlify/functions'
 
-  export default class Product extends React.Component {
+  export default class Comments extends React.Component {
     constructor(props) {
       super(props)
   
@@ -15,7 +15,7 @@ const NETLIFY_FUNC =
     componentDidMount() {
       fetch(
         `https://${NETLIFY_FUNC}/fetchcomments?id=${
-          this.props.id
+          this.props.form_id
         }`
       )
         .then(x => x.json())
