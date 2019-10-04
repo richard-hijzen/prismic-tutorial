@@ -25,7 +25,7 @@ export default function CommentForm(props) {
         name: {name},
         email: {email},
         //message: {message},
-        timestamp: firebase.firestore.FieldValue.serverTimestamp()
+        //timestamp: firebase.firestore.FieldValue.serverTimestamp()
       }).catch(function(error) {
         console.error('Error writing new message to Firebase Database', error);
       });
