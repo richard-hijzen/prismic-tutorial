@@ -18,7 +18,8 @@ export default function CommentForm(props) {
   }
 
     // Saves a new message on the Cloud Firestore.
-    const saveMessage = () => {
+    const saveMessage = (props) => {
+      const id = props.id
       // Add a new message entry to the Firebase database.
       return firebase.firestore().collection({id}).add({
         name: {name},
