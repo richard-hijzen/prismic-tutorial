@@ -76,4 +76,4 @@ package-lock.json
 .netlify
 
 #firebase
-firebase.js
+#firebase.js
