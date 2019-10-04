@@ -1,63 +1,69 @@
-import React from 'react'
-
+import React from "react"
 
 function encode(data) {
   return Object.keys(data)
-    .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
-    .join('&')
+    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&")
 }
 
-export default function CommentForm(props) {
-  const [state, setState] = React.useState({})
 
-  const handleChange = (e) => {
+
+export default function CommentForm(props) {
+  const [state, setState] = React.useState({});
+  const id = props.id
+
+  const handleChange = e => {
     setState({ ...state, [e.target.name]: e.target.value })
   }
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    const form = e.target
-    fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode({
-        'form-name': form.getAttribute('name'),
-        ...state,
-      }),
-    })
-      .then(() => alert('success'))
-      .catch((error) => alert(error))
-  }
+    // Saves a new message on the Cloud Firestore.
+    const saveMessage = () => {
+      // Add a new message entry to the Firebase database.
+      return firebase.firestore().collection({id}).add({
+        name: {name},
+        email: {email},
+        message: {message},
+        timestamp: firebase.firestore.FieldValue.serverTimestamp()
+      }).catch(function(error) {
+        console.error('Error writing new message to Firebase Database', error);
+      });
+    }
 
   return (
-    <section>
-    <h3 className="reviews">Reviews</h3>
-
-    <form
-    className="review__form"
-    name={props.id}
-    method="POST"
-    data-netlify-honeypot="bot-field"
-    data-netlify="true"
-  >
-    <input type="hidden" name="form-name" value={props.id} />
-    <div className="field__form">
-      <label>NAME</label>
-      <input type="text" name="name" />
+    <div className="comment-container">
+      <div className="comment container">
+        <form
+          name={id}
+          method="post"
+          onSubmit={saveMessage}
+        >
+          <p>
+            <label htmlFor="name">Your name:</label>
+            <input type="text" id="name" name="name" onChange={handleChange} />
+          </p>
+          <p>
+            <label htmlFor="email">Your email:</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              onChange={handleChange}
+            />
+          </p>
+          <p>
+            <label htmlFor="textarea">Message:</label>
+            <textarea
+              id="textarea"
+              name="message"
+              rows="5"
+              onChange={handleChange}
+            />
+          </p>
+          <p className="submit-button">
+            <button type="submit">Submit</button>
+          </p>
+        </form>
+      </div>
     </div>
-    <div className="field__form">
-      <label>EMAIL</label>
-      <input type="email" name="email" />
-    </div>
-    <div className="field__form">
-      <label>MESSAGE</label>
-      <textarea name="message" />
-    </div>
-
-    <button className="button__form" type="submit">
-      SEND
-    </button>
-  </form>
-</section>
   )
 }

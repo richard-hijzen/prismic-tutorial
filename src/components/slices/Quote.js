@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react"
 
-
-export default ({ slice }) =>
+export default ({ slice }) => (
   <div className="post-quote container">
-    <blockquote>
-      { slice.primary.quote }
-    </blockquote>
+    <blockquote>{slice.primary.quote}</blockquote>
   </div>
+)
