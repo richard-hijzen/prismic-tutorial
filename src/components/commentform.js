@@ -21,8 +21,8 @@ export default function CommentForm(props) {
     const saveMessage = (props) => {
       const id = props.id
       // Add a new message entry to the Firebase database.
-      return firebase.firestore().collection('tubing').add({
-        name: {name},
+      return firebase.firestore().collection(`${id}`).add({
+        name: `${name}`,
         //email: {email},
         //message: {message},
         //timestamp: firebase.firestore.FieldValue.serverTimestamp()
