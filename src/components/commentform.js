@@ -24,7 +24,7 @@ export default function CommentForm(props) {
       return firebase.firestore().collection('tubing').add({
         name: {name},
         email: {email},
-        message: {message},
+        //message: {message},
         timestamp: firebase.firestore.FieldValue.serverTimestamp()
       }).catch(function(error) {
         console.error('Error writing new message to Firebase Database', error);
