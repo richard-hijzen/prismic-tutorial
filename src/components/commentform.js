@@ -23,7 +23,7 @@ export default function CommentForm(props) {
       // Add a new message entry to the Firebase database.
       return firebase.firestore().collection('tubing').add({
         name: {name},
-        email: {email},
+        //email: {email},
         //message: {message},
         //timestamp: firebase.firestore.FieldValue.serverTimestamp()
       }).catch(function(error) {
