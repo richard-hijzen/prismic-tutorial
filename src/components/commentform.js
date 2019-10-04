@@ -22,7 +22,7 @@ export default function CommentForm(props) {
       const id = props.id
       // Add a new message entry to the Firebase database.
       return firebase.firestore().collection(`${props.id}`).add({
-        name: props.name,
+        name: `${name}`,
         //email: {email},
         //message: {message},
         //timestamp: firebase.firestore.FieldValue.serverTimestamp()
