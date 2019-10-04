@@ -21,7 +21,7 @@ export default function CommentForm(props) {
     const saveMessage = (props) => {
       const id = props.id
       // Add a new message entry to the Firebase database.
-      return firebase.firestore().collection(`${id}`).add({
+      return firebase.firestore().collection({id}).add({
         name: `${name}`,
         //email: {email},
         //message: {message},
