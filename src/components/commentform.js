@@ -1,13 +1,6 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import { firebase } from '../firebase';
-
-function encode(data) {
-  return Object.keys(data)
-    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-    .join("&")
-}
-
-
+import { Time } from './date.js';
 
 export default function CommentForm(props) {
   const [name, setName] = useState();
@@ -16,21 +9,15 @@ export default function CommentForm(props) {
   const id = props.id;
 
 
-  useEffect(() => {
-    const id = props.id;
-    console.log({name}, {email}, {message});
-  });
-
-
     // Saves a new message on the Cloud Firestore.
-    const saveMessage = (props) => {
-      const id = props.id;
+    const saveMessage = () => {      
       // Add a new message entry to the Firebase database.
-      return firebase.firestore().collection(`${props.id}`).add({
+      return firebase.firestore().collection(id).add({
         name: `${name}`,
         email: `${email}`,
         message: `${message}`,
-        //timestamp: firebase.firestore.FieldValue.serverTimestamp()
+        timestamp: new Date(),
+        time: Time
       }).catch(function(error) {
         console.error('Error writing new message to Firebase Database', error);
       });

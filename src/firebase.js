@@ -2,13 +2,13 @@ import firebase from 'firebase/app';
 import 'firebase/firestore';
 
 const firebaseConfig = firebase.initializeApp({
-    apiKey: "AIzaSyDmyjeV9hY90u3V8OfdOQQpqsePXcSWfuk",
-    authDomain: "prismic-tut.firebaseapp.com",
-    databaseURL: "https://prismic-tut.firebaseio.com",
-    projectId: "prismic-tut",
-    storageBucket: "",
-    messagingSenderId: "1011699914600",
-    appId: "1:1011699914600:web:c9b6bb61d96dfe462928dd"
+    apiKey: process.env.GATSBY_FIREBASE_APIKEY,
+    authDomain: process.env.GATSBY_FIREBASE_authDomain,
+    databaseURL: process.env.GATSBY_FIREBASE_databaseURL,
+    projectId: process.env.GATSBY_FIREBASE_projectId,
+    storageBucket: process.env.GATSBY_FIREBASE_storageBucket,
+    messagingSenderId: process.env.GATSBY_FIREBASE_messagingSenderId,
+    appId: process.env.GATSBY_FIREBASE_appId
 });
 
 export { firebaseConfig as firebase };
