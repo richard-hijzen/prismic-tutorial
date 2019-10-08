@@ -5,7 +5,7 @@ const firebaseConfig = firebase.initializeApp({
     apiKey: process.env.GATSBY_FIREBASE_APIKEY,
     authDomain: process.env.GATSBY_FIREBASE_authDomain,
     databaseURL: process.env.GATSBY_FIREBASE_databaseURL,
-    projectId: process.env.GATSBY_FIREBASE_projectId,
+    projectId: 'prismic-tut',
     storageBucket: process.env.GATSBY_FIREBASE_storageBucket,
     messagingSenderId: process.env.GATSBY_FIREBASE_messagingSenderId,
     appId: process.env.GATSBY_FIREBASE_appId

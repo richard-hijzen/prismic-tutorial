@@ -2,6 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import HeaderNav from "../components/headernav"
 import CommentForm from "../components/commentform"
+import Comments from "../components/comments"
 import Img from "gatsby-image"
 import "../styles/app.scss"
 
@@ -18,6 +19,7 @@ const Post = ({ data: { prismicPost } }) => {
       </header>
       <main id="blog-single-main">
         <div dangerouslySetInnerHTML={{ __html: data.content.html }} />
+        <Comments id={pageId} />
         <CommentForm id={pageId} />
       </main>
     </React.Fragment>
