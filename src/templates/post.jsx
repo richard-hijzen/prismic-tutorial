@@ -18,7 +18,9 @@ const Post = ({ data: { prismicPost } }) => {
         <Img fluid={data.image.localFile.childImageSharp.fluid} />
       </header>
       <main id="blog-single-main">
-        <div dangerouslySetInnerHTML={{ __html: data.content.html }} /> 
+        <article className="blog-post">
+          <div className="blog-post-content container" dangerouslySetInnerHTML={{ __html: data.content.html }} />
+        </article> 
         <CommentForm id={pageId} />
         <Comments id={pageId} />
       </main>
