@@ -2,17 +2,16 @@ import React from "react"
 import Img from "gatsby-image"
 import Slider from "react-slick"
 import "./imagegallery.scss"
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 
 
 const ImageGallery = ({ slice }) => {
 
   let settings = {
      dots: true,
+     dotsClass: "slick-dots slick-thumb",
      infinite: true,
-     arrows: true,
-     mobileFirst: true 
+     autoplay: true,
+     autoplaySpeed: 2500 
   }
 
   return (
