@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { firebase } from '../firebase';
 import { Time } from './date.js';
+import "./commentform.scss"
 
 export default function CommentForm(props) {
   const [name, setName] = useState();
@@ -25,7 +26,8 @@ export default function CommentForm(props) {
 
   return (
     <div className="comment-container">
-      <div className="comment container">
+      <div className="commentform container">
+        <h3>Leave a comment here</h3>
         <form
           name={id}
           method="post"
