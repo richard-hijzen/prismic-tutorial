@@ -1,7 +1,15 @@
 .homepage-slice-wrapper-article-list {
+    margin-bottom: 1.2rem;
+
     #wrapper-intro {
         display: flex;
         justify-content: center;
+
+        h2 {
+            font-size: 3rem;
+            margin-bottom: 1.2rem;
+            color: #fff;
+        }
     }
 }
 

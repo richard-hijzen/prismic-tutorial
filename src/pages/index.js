@@ -210,7 +210,7 @@ const PostBody = ({ homepage }) => {
       {/* Go through the slices of the post and render the appropiate one */}
       <main
         style={{
-          width: 960,
+          width: 1200,
           maxWidth: `100%`,
           margin: `0 auto`,
         }}

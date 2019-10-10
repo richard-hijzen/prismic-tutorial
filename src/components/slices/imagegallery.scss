@@ -1,0 +1,17 @@
+.homepage-slice-wrapper-gallery {
+    background: #fff;
+    border-radius: 5px;
+    width: 95%;
+    margin: 0 auto;
+
+    #gallery-intro {
+        padding: 30px;
+    }
+
+    .slick-list {
+        p {
+            display: flex;
+            justify-content: center;
+        }
+    }
+}
