@@ -62,21 +62,21 @@ const PostSlices = ({ slices }) => {
   return slices.map((slice, index) => {
     const res = (() => {
       switch (slice.slice_type) {
-        case "centered_text":
+        case 'centered_text':
           return (
             <div key={index} className="homepage-slice-wrapper">
               {<Text slice={slice} />}
             </div>
           )
 
-        case "quote":
+        case 'quote':
           return (
             <div key={index} className="homepage-slice-wrapper">
               {<Quote slice={slice} />}
             </div>
           )
 
-        case "feature":
+        case 'feature':
           return (
             <div key={index} className="homepage-slice-wrapper">
               {<ImageCaption slice={slice} />}
@@ -86,10 +86,10 @@ const PostSlices = ({ slices }) => {
         default:
           return
       }
-    })()
-    return res
-  })
-}
+    })();
+    return res;
+  });
+};
 
 // Display the title, date, and content of the Post
 const PostBody = ({ page }) => {
@@ -99,27 +99,27 @@ const PostBody = ({ page }) => {
       <div className="container post-header">
         {/* Render the title */}
         <h1 data-wio-id="page-title">
-          {titled ? page.page_title.text : "Untitled"}
+          {titled ? page.page_title.text : 'Untitled'}
         </h1>
       </div>
       {/* Go through the slices of the post and render the appropiate one */}
       <PostSlices slices={page.body} />
     </div>
-  )
-}
+  );
+};
 
 const PostForm = ({ pageid }) => {
-  if (pageid !== "contact-us") return null
+  if (pageid !== 'contact-us') return null;
 
-  return <ContactForm />
-}
+  return <ContactForm />;
+};
 
-export default props => {
+export default (props) => {
   // Define the Post content returned from Prismic
-  const doc = props.data.prismicPage.data
-  const pageId = props.data.prismicPage.uid
+  const doc = props.data.prismicPage.data;
+  const pageId = props.data.prismicPage.uid;
 
-  if (!doc) return null
+  if (!doc) return null;
 
   return (
     <>
@@ -127,5 +127,5 @@ export default props => {
       <PostBody page={doc} />
       <PostForm pageid={pageId} />
     </>
-  )
-}
+  );
+};

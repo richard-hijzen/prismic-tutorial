@@ -1,26 +1,27 @@
-import React from "react"
-import TopMenu from "./topmenu"
-import TitleMenu from "./titleMenu"
-import "./headernav.scss"
-const netlifyIdentity = require("netlify-identity-widget")
+import React from 'react';
+import TopMenu from './topmenu';
+import TitleMenu from './titleMenu';
+import './headernav.scss';
+
+const netlifyIdentity = require('netlify-identity-widget');
 
 class HeaderNav extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
-      condition: "hide",
+      condition: 'hide',
     }
-    this.handleClick = this.handleClick.bind(this)
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
-    netlifyIdentity.init()
+    netlifyIdentity.init();
   }
 
   handleClick = () => {
     this.setState({
       condition: !this.state.condition,
-    })
+    });
   }
 
   render() {
@@ -29,7 +30,7 @@ class HeaderNav extends React.Component {
         <div className="navbar-brand">
           <TitleMenu />
         </div>
-        <div className={this.state.condition ? "hide wide" : "show"}>
+        <div className={this.state.condition ? 'hide wide' : 'show'}>
           <TopMenu />
           <div className="signin-up" data-netlify-identity-menu></div>
         </div>
@@ -43,8 +44,8 @@ class HeaderNav extends React.Component {
           </svg>
         </button>
       </nav>
-    )
+    );
   }
 }
 
-export default HeaderNav
+export default HeaderNav;
