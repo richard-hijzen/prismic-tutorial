@@ -1,6 +1,7 @@
 import React from 'react';
 import TopMenu from './topmenu';
 import TitleMenu from './titleMenu';
+import Signin from './signin';
 import './headernav.scss';
 
 const netlifyIdentity = require('netlify-identity-widget');
@@ -32,7 +33,7 @@ class HeaderNav extends React.Component {
         </div>
         <div className={this.state.condition ? 'hide wide' : 'show'}>
           <TopMenu />
-          <div className="signin-up" data-netlify-identity-menu></div>
+          <Signin />
         </div>
         <button
           id="responsive-menu"
