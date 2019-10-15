@@ -28,17 +28,13 @@ class HeaderNav extends React.Component {
         <div className={this.state.condition ? 'hide wide' : 'show'}>
           <TopMenu />
           
-          <div class="snipcart-summary">
-            <a href="#" class="snipcart-user-profile signin-up">
+          <div className="snipcart-summary signin-up">
+            <a href="#" className="snipcart-user-profile">
               <FaUserAlt />
             </a>
-          </div>
-          <div>
             <FaShoppingCart />
-          </div>
-          <div class="snipcart-summary">
-              items: <span class="snipcart-total-items"></span>
-              Total price: <span class="snipcart-total-price"></span>
+              items: <span className="snipcart-total-items"></span>
+              Total price: <span className="snipcart-total-price"></span>
           </div>
         </div>
         <button

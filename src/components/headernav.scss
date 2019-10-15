@@ -28,18 +28,10 @@
         .signin-up {
             margin: 1.4rem 1rem;
 
-            .netlify-identity-menu {
-                display: flex;
-                list-style: none;
-                padding-left: 10px;
-
-                .netlify-identity-item {
-                    margin: 0 5px;
-                    a {
-                        color: #fff;
-                    }
-                }
-            }
+             svg {
+                 fill: #fff;
+                 margin-right: 1rem;
+             }   
         }
 
     #responsive-menu {

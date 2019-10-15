@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "firebase": "^6.2.4",
+    "fs": "0.0.1-security",
     "gatsby": "^2.13.25",
     "gatsby-image": "^2.2.4",
     "gatsby-plugin-manifest": "^2.2.1",

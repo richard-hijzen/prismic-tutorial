@@ -1,7 +1,9 @@
 import React from 'react';
 import { Helmet } from "react-helmet"
 
+
 export default function HelmComp() {
+    
     return (
         <Helmet>
             <link
@@ -23,7 +25,11 @@ export default function HelmComp() {
             onload="this.onload=null;this.rel='stylesheet'" 
             />
             <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous" defer></script>
-            <script id="snipcart" src="https://cdn.snipcart.com/scripts/2.0/snipcart.js" data-api-key={process.env.data_api_key} defer></script>
+            <script
+            type="text/javascript" 
+            id="snipcart" 
+            src="https://cdn.snipcart.com/scripts/2.0/snipcart.js" 
+            data-api-key='ZTY2ZWQ2M2ItNDdkNy00ZGFhLTg1Y2MtOTg4MTI3YTMyZmRiNjM3MDY2NzQ3MjIyMTQ0MDc0' defer></script>
         </Helmet>
     );
 };
