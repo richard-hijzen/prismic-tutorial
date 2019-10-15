@@ -8,9 +8,9 @@ const Index = ({ data }) => {
   return (
     <div>
       {data.allPrismicBlogpage.edges.map(document => (
-        <header key={document.node.id} id="blog-header">
-          <h1>{document.node.data.title.text}</h1>
+        <header key={document.node.id} id="blog-header"> 
           <HeaderNav />
+          <h1>{document.node.data.title.text}</h1>
           <Img
             fluid={document.node.data.image.localFile.childImageSharp.fluid}
           />

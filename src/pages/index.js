@@ -3,7 +3,7 @@ import { Link, graphql } from "gatsby"
 import HeaderNav from "../components/headernav"
 import Footer from "../components/footer"
 import Img from "gatsby-image"
-import { Helmet } from "react-helmet"
+import HelmComp from '../components/helmcomp';
 import { ImageGallery } from "../components/slices"
 import "../styles/bootstrap/bootstrap.min.css"
 import "../styles/app.scss"
@@ -229,20 +229,7 @@ const App = props => {
 
   return (
     <>
-      <Helmet>
-        <link
-          rel="preload"
-          href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
-          as="style"
-          onload="this.onload=null;this.rel='stylesheet'"
-        />
-        <link
-          rel="preload"
-          href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
-          as="style"
-          onload="this.onload=null;this.rel='stylesheet'"
-        />
-      </Helmet>
+      <HelmComp />
       <PostBody homepage={doc} />
       <Footer />
     </>
