@@ -1,12 +1,14 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
+import HelmComp from '../components/helmcomp';
 import HeaderNav from "../components/headernav"
 import Img from "gatsby-image"
 import "../styles/components/blog.scss"
 
 const Index = ({ data }) => {
   return (
-    <div>
+    <>
+    <HelmComp />
       {data.allPrismicBlogpage.edges.map(document => (
         <header key={document.node.id} id="blog-header"> 
           <HeaderNav />
@@ -41,7 +43,7 @@ const Index = ({ data }) => {
           ))}
         </ul>
       </main>
-    </div>
+    </>
   )
 }
 

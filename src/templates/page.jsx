@@ -1,5 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
+import HelmComp from '../components/helmcomp';
 import { ImageCaption, Quote, Text } from "../components/slices"
 import HeaderNav from "../components/headernav"
 import ContactForm from "../components/contactform"
@@ -123,6 +124,7 @@ export default (props) => {
 
   return (
     <>
+      <HelmComp />
       <HeaderNav />
       <PostBody page={doc} />
       <PostForm pageid={pageId} />

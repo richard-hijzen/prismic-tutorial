@@ -1,6 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
+import HelmComp from '../components/helmcomp';
 import HeaderNav from '../components/headernav';
 import CommentForm from '../components/commentform';
 import Comments from '../components/comments';
@@ -12,6 +13,7 @@ const Post = ({ data: { prismicPost } }) => {
 
   return (
     <>
+      <HelmComp />
       <header id="blog-single-header">
         <HeaderNav />
         
