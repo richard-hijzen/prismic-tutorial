@@ -1,9 +1,9 @@
-import React from "react"
-import { Link, graphql } from "gatsby"
+import React from "react";
+import { Link, graphql } from "gatsby";
 import HelmComp from '../components/helmcomp';
-import HeaderNav from "../components/headernav"
-import Img from "gatsby-image"
-import "../styles/components/blog.scss"
+import HeaderNav from "../components/headernav";
+import Img from "gatsby-image";
+import "../styles/components/blog.scss";
 
 const Index = ({ data }) => {
   return (

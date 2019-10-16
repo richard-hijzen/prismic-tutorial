@@ -12,7 +12,7 @@ class HeaderNav extends React.Component {
     }
     this.handleClick = this.handleClick.bind(this);
   }
-
+  
   handleClick = () => {
     this.setState({
       condition: !this.state.condition,
@@ -32,9 +32,10 @@ class HeaderNav extends React.Component {
             <a href="#" className="snipcart-user-profile">
               <FaUserAlt />
             </a>
-            <FaShoppingCart />
-              items: <span className="snipcart-total-items"></span>
-              Total price: <span className="snipcart-total-price"></span>
+            <a href="#" className="snipcart-checkout">
+              <FaShoppingCart />
+            </a>
+              <span className="snipcart-total-items"></span>
           </div>
         </div>
         <button

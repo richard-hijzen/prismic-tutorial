@@ -5,7 +5,7 @@ import { Helmet } from "react-helmet"
 export default function HelmComp() {
     
     return (
-        <Helmet>
+        <Helmet htmlAttributes={{ lang : 'nl' }}>
             <link
             rel="preload"
             href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"

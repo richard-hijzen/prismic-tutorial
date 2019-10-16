@@ -65,8 +65,34 @@ exports.createPages = async ({ graphql, actions }) => {
   })
 });
 
+  // Create pages for each product in prismic
+  const getProducts = makeRequest(graphql, `
+  {
+    allPrismicProduct {
+      edges {
+        node {
+          id
+          uid
+        }
+      }
+    }
+  }
+`).then(result => {
+  // Create pages for each article.
+  result.data.allPrismicProduct.edges.forEach(({ node }) => {
+      createPage({
+        path: `/${node.uid}`,
+        component: path.resolve(`src/templates/product.jsx`),
+        context: {
+          uid: node.uid,
+        },
+      })
+  })
+});
+
   return Promise.all([
     getPosts,
     getPages,
+    getProducts,
   ])
 };
