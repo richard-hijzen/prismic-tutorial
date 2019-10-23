@@ -93,6 +93,6 @@ exports.createPages = async ({ graphql, actions }) => {
   return Promise.all([
     getPosts,
     getPages,
-    getProducts,
+    getProducts
   ])
 };
