@@ -38,7 +38,7 @@ const AllProducts = ({ data }) => {
               <div id="price">
                 <p>€{document.node.data.price.text}</p>
               </div>
-              <div id="read-more">
+              <div className="read-more">
                   <p>
                     <Link to={`/${document.node.uid}`}>Scopri di piu</Link>
                   </p>
