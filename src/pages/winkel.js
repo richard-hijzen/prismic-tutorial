@@ -53,7 +53,7 @@ const AllProducts = ({ data }) => {
 
 export default AllProducts
 
-export const productQuery = graphql`
+export const prodQuery = graphql`
   query ProductQuery {
     allPrismicProduct {
       edges {
