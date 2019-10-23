@@ -1,18 +1,10 @@
-import React from "react"
+import React from "react";
 import { graphql } from "gatsby"
 import HelmComp from '../components/helmcomp';
 import { ImageCaption, Quote, Text } from "../components/slices"
 import HeaderNav from "../components/headernav"
 import ContactForm from "../components/contactform"
 
-/*const Page = ({ data: { prismicPage } }) => {
-  const { data } = prismicPage
-  return (
-    <React.Fragment>
-      <h1>{data.page_title.text}</h1>
-    </React.Fragment>
-  )
-}*/
 
 export const pagesQuery = graphql`
   query PageBySlug($uid: String!) {

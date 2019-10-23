@@ -19,6 +19,17 @@ module.exports = {
       },
     },
 
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          `Calibre\:300,400,400i,500,700`,
+          `source sans pro\:300,400,400i,700` // you can also specify font weights and styles
+        ],
+        display: 'swap'
+      }
+    },
+
    /* {
       resolve: `gatsby-source-filesystem`,
       options: {
