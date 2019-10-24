@@ -38,7 +38,7 @@ const Product = ({ data: { prismicProduct } }) => {
               data-item-name={data.title.text}
               data-item-price={data.price.text}
               data-item-weight="20"
-              data-item-url="/"
+              data-item-url={`/${pageId}`}
               data-item-description={data.short_description.text}>
                   in winkelmand
             </button>

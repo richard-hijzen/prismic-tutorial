@@ -13,6 +13,11 @@
         list-style: none;
         background: #fff;
         margin: 10px;
+        text-decoration: none;
+
+        a {
+            text-decoration: none;
+        }
 
         .img-container {
             max-height: 250px;
@@ -21,8 +26,8 @@
         
         #product-intro {
             padding: 20px 20px 0 20px;
-
-            a {
+            
+            h2 {
                 font-size: 1rem;
                 font-weight: 600;
                 text-decoration: none;
@@ -41,16 +46,18 @@
             padding: 0 20px;
             p{
                 font-weight: 600;
+                color:#000;
             }
         }
 
-        .read-more {
-                a {
-                    background: #3abcda; /* fallback for old browsers */
-                    background: rgba(161, 23, 230,1.0); /* Chrome 10-25, Safari 5.1-6 */
-                    color: #fff;
-                }
-            }
+        button {
+            z-index: 10;
+            border: none;
+            background: #4FD37E;
+            color: #fff;
+            font-size: 1.2rem;
+            padding: 5px 0;   
+        }
     }
 }
 

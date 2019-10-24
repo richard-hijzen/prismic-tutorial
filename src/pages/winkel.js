@@ -10,7 +10,7 @@ const AllProducts = ({ data }) => {
     <>
     <HelmComp />
       {data.allPrismicWinkel.edges.map(document => (
-        <header key={document.node.id} id="blog-header"> 
+        <header key={document.node.data.title.text} id="blog-header"> 
           <HeaderNav />
           <h1>{document.node.data.title.text}</h1>
           <Img
@@ -22,6 +22,7 @@ const AllProducts = ({ data }) => {
         <ul>
           {data.allPrismicProduct.edges.map(document => (
             <li key={document.node.uid} className="product">
+            <Link to={`/${document.node.uid}`}>
               <div className="img-container">
               <Img
                   fluid={document.node.data.image.localFile.childImageSharp.fluid}
@@ -29,20 +30,26 @@ const AllProducts = ({ data }) => {
               </div>
               <div id="product-intro">
                 <h2>
-                  <Link to={`/${document.node.uid}`}>
                     {document.node.data.brand.text}
-                  </Link>
                 </h2>
                 <p>{document.node.data.short_description.text}</p>
               </div>
               <div id="price">
                 <p>€{document.node.data.price.text}</p>
               </div>
-              <div className="read-more">
-                  <p>
-                    <Link to={`/${document.node.uid}`}>Scopri di piu</Link>
-                  </p>
-              </div>
+              </Link>
+              <button
+                className="snipcart-add-item"
+                data-item-id="1"
+                data-item-image={document.node.data.image.url}
+                data-item-name={document.node.data.brand.text}
+                data-item-price={document.node.data.price.text}
+                data-item-weight="20"
+                data-item-url={`/${document.node.uid}`}
+                data-item-description={document.node.data.short_description.text}>
+                    in mandje
+              </button>
+              
             </li>
           ))}
         </ul>
@@ -74,6 +81,7 @@ export const prodQuery = graphql`
                   }
                 }
               }
+              url
             }
             price {
               text
