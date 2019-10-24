@@ -11,9 +11,16 @@
         display: flex;
         flex-direction: column;
         list-style: none;
-        background: #fff;
         margin: 10px;
         text-decoration: none;
+
+        .product-details {
+            min-height: 340px;
+            background: #fff;
+            position: relative;
+
+        }
+
 
         a {
             text-decoration: none;
@@ -43,7 +50,7 @@
         }
 
         #price {
-            padding: 0 20px;
+            padding: 0 20px 10px 20px;
             p{
                 font-weight: 600;
                 color:#000;
@@ -67,5 +74,15 @@
             display: grid;
             grid-template-columns: repeat(2, 50%);
         }
+        .product {
+
+            #price {
+                padding: 0 20px;
+            }
+        }
+        
     }
+
+
+
 }

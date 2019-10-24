@@ -33,7 +33,7 @@ const Product = ({ data: { prismicProduct } }) => {
             <div className="product-single-content container" dangerouslySetInnerHTML={{ __html: data.description.html }} />
             <button
               className="snipcart-add-item"
-              data-item-id="1"
+              data-item-id={pageId}
               data-item-image={data.image.url}
               data-item-name={data.title.text}
               data-item-price={data.price.text}

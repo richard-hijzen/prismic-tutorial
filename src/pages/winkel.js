@@ -22,25 +22,27 @@ const AllProducts = ({ data }) => {
         <ul>
           {data.allPrismicProduct.edges.map(document => (
             <li key={document.node.uid} className="product">
-            <Link to={`/${document.node.uid}`}>
-              <div className="img-container">
-              <Img
-                  fluid={document.node.data.image.localFile.childImageSharp.fluid}
-                />
-              </div>
-              <div id="product-intro">
-                <h2>
-                    {document.node.data.brand.text}
-                </h2>
-                <p>{document.node.data.short_description.text}</p>
-              </div>
-              <div id="price">
-                <p>€{document.node.data.price.text}</p>
-              </div>
+              <Link to={`/${document.node.uid}`}>
+                <div className="product-details">
+                  <div className="img-container">
+                  <Img
+                      fluid={document.node.data.image.localFile.childImageSharp.fluid}
+                    />
+                  </div>
+                  <div id="product-intro">
+                    <h2>
+                        {document.node.data.brand.text}
+                    </h2>
+                    <p>{document.node.data.short_description.text}</p>
+                  </div>
+                  <div id="price">
+                    <p>€{document.node.data.price.text}</p>
+                  </div>
+                </div>
               </Link>
               <button
                 className="snipcart-add-item"
-                data-item-id="1"
+                data-item-id={document.node.uid}
                 data-item-image={document.node.data.image.url}
                 data-item-name={document.node.data.brand.text}
                 data-item-price={document.node.data.price.text}
