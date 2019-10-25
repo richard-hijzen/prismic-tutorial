@@ -9,8 +9,13 @@ class HeaderNav extends React.Component {
     super(props);
     this.state = {
       condition: 'hide',
+      count: '',
     }
     this.handleClick = this.handleClick.bind(this);
+  }
+
+  componentDidMount() {
+    this.setState({count: Snipcart.api.items.count()});
   }
   
   handleClick = () => {
@@ -35,7 +40,8 @@ class HeaderNav extends React.Component {
             <a href="#" className="snipcart-checkout">
               <FaShoppingCart />
             </a>
-              <span className="snipcart-total-items"></span>
+              <span className="snipcart-total-items">{this.state.count}</span>
+              
           </div>
         </div>
         <button

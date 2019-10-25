@@ -47,7 +47,7 @@ const AllProducts = ({ data }) => {
                 data-item-name={document.node.data.brand.text}
                 data-item-price={document.node.data.price.text}
                 data-item-weight="20"
-                data-item-url={`/${document.node.uid}`}
+                data-item-url={`https://estate-olanda.netlify.com/${document.node.uid}`}
                 data-item-description={document.node.data.short_description.text}>
                     in mandje
               </button>
