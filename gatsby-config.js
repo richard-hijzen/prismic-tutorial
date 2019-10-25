@@ -31,6 +31,13 @@ module.exports = {
     },
 
     {
+      resolve: 'gatsby-plugin-snipcart',
+      options: {
+          apiKey: process.env.GATSBY_SNIPCART_APIKEY
+      }
+  },
+
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,

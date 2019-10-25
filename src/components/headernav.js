@@ -11,13 +11,14 @@ class HeaderNav extends React.Component {
       condition: 'hide',
       count: '',
     }
-    
+
     this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
-    this.setState({count: Snipcart.api.items.count()});
+      this.setState({count: Snipcart.api.items.count()});
   }
+
   
   handleClick = () => {
     
