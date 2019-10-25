@@ -11,6 +11,7 @@ class HeaderNav extends React.Component {
       condition: 'hide',
       count: '',
     }
+    
     this.handleClick = this.handleClick.bind(this);
   }
 
@@ -19,9 +20,11 @@ class HeaderNav extends React.Component {
   }
   
   handleClick = () => {
+    
     this.setState({
       condition: !this.state.condition,
     });
+    this.state.condition ? document.body.classList.add('modal-open') : document.body.classList.remove('modal-open');
   }
 
   render() {

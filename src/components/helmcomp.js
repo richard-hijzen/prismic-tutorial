@@ -30,7 +30,7 @@ export default function HelmComp() {
             id="snipcart" 
             src="https://cdn.snipcart.com/scripts/2.0/snipcart.js" 
             data-api-key='ZTY2ZWQ2M2ItNDdkNy00ZGFhLTg1Y2MtOTg4MTI3YTMyZmRiNjM3MDY2NzQ3MjIyMTQ0MDc0' defer></script>
-            <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+            <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous" defer></script>
         </Helmet>
     );
 };
