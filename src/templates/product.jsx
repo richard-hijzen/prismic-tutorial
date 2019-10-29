@@ -20,16 +20,16 @@ const Product = ({ data: { prismicProduct } }) => {
       </header>
       <main id="product-single-main">
         <article className="single-product container">
-          <div>
+          <div className="product-image">
             <Img 
               fluid={data.image.localFile.childImageSharp.fluid} 
               alt={data.image.alt}
             />
           </div>
-          <div>
-            <h1>{data.title.text}</h1>
-            <h5>€{data.price.text}</h5>
-            <h6>{data.short_description.text}</h6>
+          <div className="product-data">
+            <h1 className="product-title">{data.brand.text}</h1>
+            <h6 className="product-short-description">{data.short_description.text}</h6>
+            <h5 className="product-price">€{data.price.text}</h5>
             <div className="product-single-content container" dangerouslySetInnerHTML={{ __html: data.description.html }} />
             <button
               className="snipcart-add-item"
@@ -58,6 +58,9 @@ export const pageQuery = graphql`
     prismicProduct(uid: { eq: $uid }) {
         uid
         data {
+          brand {
+            text
+          }
           title {
             text
           }
