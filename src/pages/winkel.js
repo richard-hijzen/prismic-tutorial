@@ -13,11 +13,16 @@ const AllProducts = ({ data }) => {
     
       {data.allPrismicWinkel.edges.map(document => (
         <header key={document.node.data.title.text} id="blog-header">
-        <Helmet>
-      <title>{document.node.data.meta_title}</title>
-      <meta name="description" content={document.node.data.meta_description} />
-      <link rel="canonical" href={`https://estate-olanda.netlify.com${document.node.data.canonical.url}`} />
-    </Helmet> 
+          <Helmet>
+            <title>{document.node.data.meta_title}</title>
+            <meta name="description" content={document.node.data.meta_description} />
+            <link rel="canonical" href={`https://estate-olanda.netlify.com${document.node.data.canonical.url}`} />
+            <meta property="og:title" content={document.node.data.social_title} />
+            <meta property="og:description" content={document.node.data.social_description} />
+            <meta property="og:image" content={document.node.data.social_image.url} />
+            <meta property="og:url" content={`https://estate-olanda.netlify.com${document.node.data.social_url.url}`} />
+            <meta name="twitter:card" content="summary_large_image"></meta>
+          </Helmet> 
           <HeaderNav />
           <h1>{document.node.data.title.text}</h1>
           <Img
@@ -107,6 +112,18 @@ export const prodQuery = graphql`
             meta_description
             canonical {
               url
+            }
+            social_title
+            social_url {
+              url
+            }
+            twitter_card
+            social_description
+            social_image {
+              url
+            }
+            twitter_image_alt_name {
+              text
             }
             image {
               alt
