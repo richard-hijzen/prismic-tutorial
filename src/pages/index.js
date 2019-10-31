@@ -248,6 +248,7 @@ const App = props => {
       <Helmet>
         <title>{doc.meta_title}</title>
         <meta name="description" content={doc.meta_description} />
+        <meta property="og:type" content="website" />
         <meta property="og:title" content={doc.social_title} />
         <meta property="og:description" content={doc.social_description} />
         <meta property="og:image" content={doc.social_image.url} />

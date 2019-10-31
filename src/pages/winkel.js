@@ -17,6 +17,7 @@ const AllProducts = ({ data }) => {
             <title>{document.node.data.meta_title}</title>
             <meta name="description" content={document.node.data.meta_description} />
             <link rel="canonical" href={`https://estate-olanda.netlify.com${document.node.data.canonical.url}`} />
+            <meta property="og:type" content="website" />
             <meta property="og:title" content={document.node.data.social_title} />
             <meta property="og:description" content={document.node.data.social_description} />
             <meta property="og:image" content={document.node.data.social_image.url} />
