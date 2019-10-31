@@ -126,7 +126,7 @@ export default (props) => {
       <Helmet>
         <title>{doc.meta_title}</title>
         <meta name="description" content={doc.meta_description} />
-        <link rel="canonical" href={`https://estate-olanda.netlify.com/${doc.canonical.url}`} />
+        <link rel="canonical" href={`https://estate-olanda.netlify.com${doc.canonical.url}`} />
       </Helmet>
       <HeaderNav />
       <PostBody page={doc} />

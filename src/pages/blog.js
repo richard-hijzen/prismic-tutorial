@@ -16,7 +16,7 @@ const Index = ({ data }) => {
           <Helmet>
             <title>{document.node.data.meta_title}</title>
             <meta name="description" content={document.node.data.meta_description} />
-            <link rel="canonical" href={`https://estate-olanda.netlify.com/${document.node.data.canonical.url}`} />
+            <link rel="canonical" href={`https://estate-olanda.netlify.com${document.node.data.canonical.url}`} />
           </Helmet> 
           <HeaderNav />
           <h1>{document.node.data.title.text}</h1>

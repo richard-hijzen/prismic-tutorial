@@ -19,7 +19,7 @@ const Product = ({ data: { prismicProduct } }) => {
       <Helmet>
         <title>{data.meta_title}</title>
         <meta name="description" content={data.meta_description} />
-        <link rel="canonical" href={`https://estate-olanda.netlify.com/${data.canonical.url}`} />
+        <link rel="canonical" href={`https://estate-olanda.netlify.com${data.canonical.url}`} />
       </Helmet>
       <header id="product-page-header">
         <HeaderNav />
