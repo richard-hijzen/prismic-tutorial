@@ -17,6 +17,18 @@ export const indexQuery = graphql`
       data {
         meta_title
         meta_description
+        social_title
+        social_url {
+          url
+        }
+        twitter_card
+        social_description
+        social_image {
+          url
+        }
+        twitter_image_alt_name {
+          text
+        }
         homepage_banner {
           title {
             text
@@ -236,6 +248,13 @@ const App = props => {
       <Helmet>
         <title>{doc.meta_title}</title>
         <meta name="description" content={doc.meta_description} />
+        <meta property="og:title" content={doc.social_title} />
+        <meta property="og:description" content={doc.social_description} />
+        <meta property="og:image" content={doc.social_image.url} />
+        <meta property="og:url" content="https://estate-olanda.netlify.com" />
+        <meta property="og:site_name" content="Estate in Olanda." />
+        <meta name="twitter:image:alt" content={doc.twitter_image_alt_name.text} />
+        <meta name="twitter:card" content="summary_large_image"></meta>
       </Helmet>
       <PostBody homepage={doc} />
       <Footer />
