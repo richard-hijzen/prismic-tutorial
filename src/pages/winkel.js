@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, graphql } from "gatsby";
+import { Helmet } from "react-helmet"
 import HelmComp from '../components/helmcomp';
 import HeaderNav from "../components/headernav";
 import Img from "gatsby-image";
@@ -9,8 +10,14 @@ const AllProducts = ({ data }) => {
   return (
     <>
     <HelmComp />
+    
       {data.allPrismicWinkel.edges.map(document => (
-        <header key={document.node.data.title.text} id="blog-header"> 
+        <header key={document.node.data.title.text} id="blog-header">
+        <Helmet>
+      <title>{document.node.data.meta_title}</title>
+      <meta name="description" content={document.node.data.meta_description} />
+      <link rel="canonical" href={`https://estate-olanda.netlify.com/${document.node.data.canonical.url}`} />
+    </Helmet> 
           <HeaderNav />
           <h1>{document.node.data.title.text}</h1>
           <Img
@@ -96,6 +103,11 @@ export const prodQuery = graphql`
       edges {
         node {
           data {
+            meta_title
+            meta_description
+            canonical {
+              url
+            }
             image {
               alt
               localFile {

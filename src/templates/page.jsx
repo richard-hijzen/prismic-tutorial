@@ -1,5 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby"
+import { Helmet } from "react-helmet"
 import HelmComp from '../components/helmcomp';
 import { ImageCaption, Quote, Text } from "../components/slices"
 import HeaderNav from "../components/headernav"
@@ -11,6 +12,11 @@ export const pagesQuery = graphql`
     prismicPage(uid: { eq: $uid }) {
       uid
       data {
+        meta_title
+        meta_description
+        canonical {
+          url
+        }
         page_title {
           text
         }
@@ -117,6 +123,11 @@ export default (props) => {
   return (
     <>
       <HelmComp />
+      <Helmet>
+        <title>{doc.meta_title}</title>
+        <meta name="description" content={doc.meta_description} />
+        <link rel="canonical" href={`https://estate-olanda.netlify.com/${doc.canonical.url}`} />
+      </Helmet>
       <HeaderNav />
       <PostBody page={doc} />
       <PostForm pageid={pageId} />

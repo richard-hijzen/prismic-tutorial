@@ -3,6 +3,7 @@ import { Link, graphql } from "gatsby"
 import HeaderNav from "../components/headernav"
 import Footer from "../components/footer"
 import Img from "gatsby-image"
+import { Helmet } from "react-helmet"
 import HelmComp from '../components/helmcomp';
 import { ImageGallery } from "../components/slices"
 import "../styles/bootstrap/bootstrap.min.css"
@@ -14,6 +15,8 @@ export const indexQuery = graphql`
     prismicHomepage {
       id
       data {
+        meta_title
+        meta_description
         homepage_banner {
           title {
             text
@@ -223,13 +226,17 @@ const PostBody = ({ homepage }) => {
 
 const App = props => {
   // Define the Post content returned from Prismic
-  const doc = props.data.prismicHomepage.data
+  let doc = props.data.prismicHomepage.data
 
   if (!doc) return null
 
   return (
     <>
       <HelmComp />
+      <Helmet>
+        <title>{doc.meta_title}</title>
+        <meta name="description" content={doc.meta_description} />
+      </Helmet>
       <PostBody homepage={doc} />
       <Footer />
     </>

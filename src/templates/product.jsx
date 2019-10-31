@@ -1,6 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
+import { Helmet } from "react-helmet"
 import HelmComp from '../components/helmcomp';
 import HeaderNav from '../components/headernav';
 import CommentForm from '../components/commentform';
@@ -15,6 +16,11 @@ const Product = ({ data: { prismicProduct } }) => {
   return (
     <>
       <HelmComp />
+      <Helmet>
+        <title>{data.meta_title}</title>
+        <meta name="description" content={data.meta_description} />
+        <link rel="canonical" href={`https://estate-olanda.netlify.com/${data.canonical.url}`} />
+      </Helmet>
       <header id="product-page-header">
         <HeaderNav />
       </header>
@@ -58,6 +64,11 @@ export const pageQuery = graphql`
     prismicProduct(uid: { eq: $uid }) {
         uid
         data {
+          meta_title
+          meta_description
+          canonical {
+            url
+          }
           brand {
             text
           }
