@@ -21,6 +21,8 @@ const AllProducts = ({ data }) => {
             <meta property="og:description" content={document.node.data.social_description} />
             <meta property="og:image" content={document.node.data.social_image.url} />
             <meta property="og:url" content={`https://estate-olanda.netlify.com${document.node.data.social_url.url}`} />
+            <meta property="og:site_name" content="Estate in Olanda." />
+            <meta name="twitter:image:alt" content={document.node.data.twitter_image_alt_name.text} />
             <meta name="twitter:card" content="summary_large_image"></meta>
           </Helmet> 
           <HeaderNav />
