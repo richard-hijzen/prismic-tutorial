@@ -245,7 +245,7 @@ const App = props => {
   return (
     <>
       <HelmComp />
-      <Helmet>
+      <Helmet defer="false">
         <title>{doc.meta_title}</title>
         <meta name="description" content={doc.meta_description} />
         <meta property="og:type" content="website" />

@@ -13,7 +13,7 @@ const AllProducts = ({ data }) => {
     
       {data.allPrismicWinkel.edges.map(document => (
         <header key={document.node.data.title.text} id="blog-header">
-          <Helmet>
+          <Helmet defer="false">
             <title>{document.node.data.meta_title}</title>
             <meta name="description" content={document.node.data.meta_description} />
             <link rel="canonical" href={`https://estate-olanda.netlify.com${document.node.data.canonical.url}`} />
