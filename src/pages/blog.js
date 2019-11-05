@@ -10,14 +10,21 @@ const Index = ({ data }) => {
   const doc = data.allPrismicBlogpage.edges.node;
   return (
     <>
-    <HelmComp />
+    
       {data.allPrismicBlogpage.edges.map(document => (
         <header key={document.node.id} id="blog-header">
-          <Helmet>
-            <title>{document.node.data.meta_title}</title>
-            <meta name="description" content={document.node.data.meta_description} />
-            <link rel="canonical" href={`https://estate-olanda.netlify.com${document.node.data.canonical.url}`} />
-          </Helmet> 
+          <HelmComp 
+            title={document.node.data.meta_title}
+            description={document.node.data.meta_description}
+            fb_type="website"
+            fb_title={document.node.data.social_title}
+            fb_description={document.node.data.social_description}
+            fb_image={document.node.data.social_image.url}
+            fb_url={`https://estate-olanda.netlify.com${document.node.data.social_url.url}`}
+            fb_site_name="Estate in Olanda."
+            twitter_alt_image={document.node.data.twitter_image_alt_name.text}
+            twitter_card="summary_large_image"
+          />
           <HeaderNav />
           <h1>{document.node.data.title.text}</h1>
           <Img
@@ -89,6 +96,21 @@ export const blogQuery = graphql`
           data {
             meta_title
             meta_description
+            social_description
+            social_image {
+              url
+            }
+            social_title
+            title {
+              text
+            }
+            social_url {
+              url
+            }
+            twitter_card
+            twitter_image_alt_name {
+              text
+            }
             canonical {
               url
             }

@@ -9,30 +9,27 @@ import "../styles/components/winkel.scss";
 const AllProducts = ({ data }) => {
   return (
     <>
-    <HelmComp />
-    
       {data.allPrismicWinkel.edges.map(document => (
         <header key={document.node.data.title.text} id="blog-header">
-          <Helmet defer={false}>
-            <title>{document.node.data.meta_title}</title>
-            <meta name="description" content={document.node.data.meta_description} />
-            <link rel="canonical" href={`https://estate-olanda.netlify.com${document.node.data.canonical.url}`} />
-            <meta property="og:type" content="website" />
-            <meta property="og:title" content={document.node.data.social_title} />
-            <meta property="og:description" content={document.node.data.social_description} />
-            <meta property="og:image" content={document.node.data.social_image.url} />
-            <meta property="og:url" content={`https://estate-olanda.netlify.com${document.node.data.social_url.url}`} />
-            <meta property="og:site_name" content="Estate in Olanda." />
-            <meta name="twitter:image:alt" content={document.node.data.twitter_image_alt_name.text} />
-            <meta name="twitter:card" content="summary_large_image"></meta>
-          </Helmet> 
-          <HeaderNav />
-          <h1>{document.node.data.title.text}</h1>
-          <Img
-            fluid={document.node.data.image.localFile.childImageSharp.fluid}
+          <HelmComp 
+              title={document.node.data.meta_title}
+              description={document.node.data.meta_description}
+              fb_type="website"
+              fb_title={document.node.data.social_title}
+              fb_description={document.node.data.social_description}
+              fb_image={document.node.data.social_image.url}
+              fb_url={`https://estate-olanda.netlify.com${document.node.data.social_url.url}`}
+              fb_site_name="Estate in Olanda."
+              twitter_alt_image={document.node.data.twitter_image_alt_name.text}
+              twitter_card="summary_large_image"
           />
-        </header>
-      ))}
+            <HeaderNav />
+            <h1>{document.node.data.title.text}</h1>
+            <Img
+              fluid={document.node.data.image.localFile.childImageSharp.fluid}
+            />
+          </header>
+        ))}
       <main className="shop-page container">
         <ul>
           {data.allPrismicProduct.edges.map(document => (

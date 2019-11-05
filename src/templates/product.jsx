@@ -15,12 +15,18 @@ const Product = ({ data: { prismicProduct } }) => {
 
   return (
     <>
-      <HelmComp />
-      <Helmet>
-        <title>{data.meta_title}</title>
-        <meta name="description" content={data.meta_description} />
-        <link rel="canonical" href={`https://estate-olanda.netlify.com${data.canonical.url}`} />
-      </Helmet>
+      <HelmComp 
+        title={data.meta_title}
+        description={data.meta_description}
+        fb_type="website"
+        fb_title={data.social_title}
+        fb_description={data.social_description}
+        fb_image={data.social_image.url}
+        fb_url={`https://estate-olanda.netlify.com${data.social_url.url}`}
+        fb_site_name="Estate in Olanda."
+        twitter_alt_image={data.twitter_image_alt_name.text}
+        twitter_card="summary_large_image"
+      />
       <header id="product-page-header">
         <HeaderNav />
       </header>
@@ -64,8 +70,20 @@ export const pageQuery = graphql`
     prismicProduct(uid: { eq: $uid }) {
         uid
         data {
-          meta_title
           meta_description
+          meta_title
+          social_description
+          social_image {
+            url
+          }
+          social_title
+          social_url {
+            url
+          }
+          twitter_card
+          twitter_image_alt_name {
+            text
+          }
           canonical {
             url
           }

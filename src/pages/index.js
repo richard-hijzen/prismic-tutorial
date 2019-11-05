@@ -244,19 +244,18 @@ const App = props => {
 
   return (
     <>
-      <HelmComp />
-      <Helmet defer={false}>
-        <title>{doc.meta_title}</title>
-        <meta name="description" content={doc.meta_description} />
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content={doc.social_title} />
-        <meta property="og:description" content={doc.social_description} />
-        <meta property="og:image" content={doc.social_image.url} />
-        <meta property="og:url" content="https://estate-olanda.netlify.com" />
-        <meta property="og:site_name" content="Estate in Olanda." />
-        <meta name="twitter:image:alt" content={doc.twitter_image_alt_name.text} />
-        <meta name="twitter:card" content="summary_large_image"></meta>
-      </Helmet>
+      <HelmComp 
+        title={doc.meta_title}
+        description={doc.meta_description}
+        fb_type="website"
+        fb_title={doc.social_title}
+        fb_description={doc.social_description}
+        fb_image={doc.social_image.url}
+        fb_url="https://estate-olanda.netlify.com"
+        fb_site_name="Estate in Olanda."
+        twitter_alt_image={doc.twitter_image_alt_name.text}
+        twitter_card="summary_large_image"
+      />
       <PostBody homepage={doc} />
       <Footer />
     </>
