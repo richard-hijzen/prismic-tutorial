@@ -57,6 +57,7 @@ module.exports = {
         icon: `src/images/summer.png`
       },
     },
+    `gatsby-plugin-netlify`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sass`,
     `gatsby-plugin-sharp`,
