@@ -54,6 +54,7 @@ const AllProducts = ({ data }) => {
               </Link>
               <button
                 className="snipcart-add-item"
+                aria-label="add-to-cart"
                 data-item-id={document.node.uid}
                 data-item-image={document.node.data.image.url}
                 data-item-name={document.node.data.brand.text}

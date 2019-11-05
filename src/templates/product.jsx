@@ -45,6 +45,7 @@ const Product = ({ data: { prismicProduct } }) => {
             <div className="product-single-content container" dangerouslySetInnerHTML={{ __html: data.description.html }} />
             <button
               className="snipcart-add-item"
+              aria-label="add to cart"
               data-item-id={pageId}
               data-item-image={data.image.url}
               data-item-name={data.title.text}
