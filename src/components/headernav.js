@@ -1,6 +1,7 @@
 import React from 'react';
 import TopMenu from './topmenu';
 import TitleMenu from './titleMenu';
+import ErrorBoundary from './ErrorBoundary'
 import { FaUserAlt, FaShoppingCart } from 'react-icons/fa'
 import './headernav.scss';
 
@@ -30,6 +31,7 @@ class HeaderNav extends React.Component {
 
   render() {
     return (
+      <ErrorBoundary>
       <nav id="mainNav">
         <div className="navbar-brand">
           <TitleMenu />
@@ -58,6 +60,7 @@ class HeaderNav extends React.Component {
           </svg>
         </button>
       </nav>
+      </ErrorBoundary>
     );
   }
 }
