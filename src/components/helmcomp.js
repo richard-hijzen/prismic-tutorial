@@ -18,6 +18,12 @@ export default function HelmComp({title,description,fb_type,fb_title,fb_descript
             as="style"
             onload="this.onload=null;this.rel='stylesheet'"
             />
+            <link 
+            rel="preload"
+            href="https://cdn.snipcart.com/themes/2.0/base/snipcart.min.css" 
+            as="style"
+            onload="this.onload=null;this.rel='stylesheet'"
+            />
             <title>{title}</title>
             <meta name="description" content={description} />
             <meta property="og:type" content={fb_type} />
