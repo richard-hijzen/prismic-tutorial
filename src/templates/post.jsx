@@ -25,6 +25,8 @@ const Post = ({ data: { prismicPost } }) => {
         fb_site_name="Estate in Olanda."
         twitter_alt_image={data.twitter_image_alt_name.text}
         twitter_card="summary_large_image"
+        pub_date={prismicPost.first_publication_date}
+        up_date={prismicPost.last_publication_date}
       />
       <header id="blog-single-header">
         <HeaderNav />
@@ -49,6 +51,8 @@ export const pageQuery = graphql`
   query PostBySlug($uid: String!) {
     prismicPost(uid: { eq: $uid }) {
       uid
+      first_publication_date(formatString: "")
+      last_publication_date(formatString: "")
       data {
         meta_title
         meta_description

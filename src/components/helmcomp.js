@@ -2,7 +2,7 @@ import React from 'react';
 import { Helmet } from "react-helmet"
 
 
-export default function HelmComp({home,article,title,description,fb_type,fb_title,fb_description,fb_image,fb_url,fb_site_name,twitter_alt_image,twitter_card}) {
+export default function HelmComp({home,article,title,description,fb_type,fb_title,fb_description,fb_image,fb_url,fb_site_name,twitter_alt_image,twitter_card,pub_date,up_date}) {
 
     const author = "Richard Hijzen";
 
@@ -65,6 +65,8 @@ export default function HelmComp({home,article,title,description,fb_type,fb_titl
           url: `${fb_image}`,
         },
       },
+      datePublished: pub_date,
+      dateModified: up_date,
       description: description,
       headline: title,
       inLanguage: "nl-NL",
