@@ -16,8 +16,11 @@ class HeaderNav extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
+
   componentDidMount() {
-      this.setState({count: Snipcart.api.items.count()});
+      if('snipcart.ready') {
+        this.setState({count: Snipcart.api.items.count()});
+      };
       (!this.state.condition == 'hide') ? document.body.classList.add('modal-open') : document.body.classList.remove('modal-open');
   }
  
