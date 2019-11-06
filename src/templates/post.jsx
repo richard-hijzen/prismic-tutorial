@@ -13,7 +13,19 @@ const Post = ({ data: { prismicPost } }) => {
 
   return (
     <>
-      <HelmComp />
+      <HelmComp 
+        article={true}
+        title={data.meta_title}
+        description={data.meta_description}
+        fb_type="website"
+        fb_title={data.social_title}
+        fb_description={data.social_description}
+        fb_image={data.social_image.url}
+        fb_url={`https://estate-olanda.netlify.com${data.social_url.url}`}
+        fb_site_name="Estate in Olanda."
+        twitter_alt_image={data.twitter_image_alt_name.text}
+        twitter_card="summary_large_image"
+      />
       <header id="blog-single-header">
         <HeaderNav />
         
@@ -38,6 +50,20 @@ export const pageQuery = graphql`
     prismicPost(uid: { eq: $uid }) {
       uid
       data {
+        meta_title
+        meta_description
+        social_title
+        social_url {
+          url
+        }
+        twitter_card
+        social_description
+        social_image {
+          url
+        }
+        twitter_image_alt_name {
+          text
+        }
         title {
           text
         }

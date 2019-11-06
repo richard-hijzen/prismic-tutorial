@@ -244,7 +244,8 @@ const App = props => {
 
   return (
     <>
-      <HelmComp 
+      <HelmComp
+        home={true}
         title={doc.meta_title}
         description={doc.meta_description}
         fb_type="website"

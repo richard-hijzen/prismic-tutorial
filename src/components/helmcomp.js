@@ -2,7 +2,82 @@ import React from 'react';
 import { Helmet } from "react-helmet"
 
 
-export default function HelmComp({title,description,fb_type,fb_title,fb_description,fb_image,fb_url,fb_site_name,twitter_alt_image,twitter_card}) {
+export default function HelmComp({home,article,title,description,fb_type,fb_title,fb_description,fb_image,fb_url,fb_site_name,twitter_alt_image,twitter_card}) {
+
+    const author = "Richard Hijzen";
+
+    const schemaOrgWebPage = {
+        '@context': 'http://schema.org',
+        '@type': 'WebPage',
+        url: fb_url,
+        inLanguage: "nl-NL",
+        mainEntityOfPage: fb_url,
+        description: fb_description,
+        name: title,
+        author: {
+          '@type': 'Person',
+          name: author,
+        },
+        copyrightHolder: {
+          '@type': 'Person',
+          name: author,
+        },
+        copyrightYear: '2019',
+        creator: {
+          '@type': 'Person',
+          name: author,
+        },
+        publisher: {
+          '@type': 'Person',
+          name: author,
+        },
+        datePublished: '2019-01-18T10:30:00+01:00',
+        image: {
+          '@type': 'ImageObject',
+          url: `${fb_image}`,
+        },
+      };
+
+      let schemaArticle = null
+
+  if (article) {
+    schemaArticle = {
+      '@context': 'http://schema.org',
+      '@type': 'Article',
+      author: {
+        '@type': 'Person',
+        name: author,
+      },
+      copyrightHolder: {
+        '@type': 'Person',
+        name: author,
+      },
+      copyrightYear: '2019',
+      creator: {
+        '@type': 'Person',
+        name: author,
+      },
+      publisher: {
+        '@type': 'Organization',
+        name: author,
+        logo: {
+          '@type': 'ImageObject',
+          url: `${fb_image}`,
+        },
+      },
+      description: description,
+      headline: title,
+      inLanguage: "nl-NL",
+      url: fb_url,
+      name: title,
+      image: {
+        '@type': 'ImageObject',
+        url: fb_image,
+      },
+      mainEntityOfPage: fb_url,
+    }
+
+  }
     
     return (
         <Helmet htmlAttributes={{ lang : 'nl-NL' }}>
@@ -24,6 +99,8 @@ export default function HelmComp({title,description,fb_type,fb_title,fb_descript
             as="style"
             onload="this.onload=null;this.rel='stylesheet'"
             />
+            {home && <script type="application/ld+json">{JSON.stringify(schemaOrgWebPage)}</script>}
+            {article && <script type="application/ld+json">{JSON.stringify(schemaArticle)}</script>}
             <title>{title}</title>
             <meta name="description" content={description} />
             <meta property="og:type" content={fb_type} />
