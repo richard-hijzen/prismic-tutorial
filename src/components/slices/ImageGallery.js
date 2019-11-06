@@ -7,8 +7,7 @@ import "./imagegallery.scss"
 const ImageGallery = ({ slice }) => {
 
   let settings = {
-     dots: true,
-     dotsClass: "slick-dots slick-thumb",
+     arrows: false,
      infinite: true,
      autoplay: true,
      autoplaySpeed: 2500 
