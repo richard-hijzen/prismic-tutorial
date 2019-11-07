@@ -165,7 +165,7 @@ const PostSlices = ({ slices }) => {
                       <p>
                         {doc.articles_to_link.document[0].data.summary.text}
                       </p>
-                      <div id="read-more">
+                      <div className="read-more">
                         <p>
                           <Link to={`/${doc.articles_to_link.uid}`}>
                             Scopri di piu
