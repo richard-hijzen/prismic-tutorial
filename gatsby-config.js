@@ -9,6 +9,9 @@ require("dotenv").config({
 }) 
 
 module.exports = {
+  siteMetadata: {
+    siteUrl: `https://estate-olanda.netlify.com`,
+  },
   plugins: [
     {
       resolve: `gatsby-source-prismic`,
@@ -46,6 +49,7 @@ module.exports = {
         icon: `src/images/summer.png`
       },
     },
+    `gatsby-plugin-sitemap`,
     `gatsby-plugin-netlify`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sass`,
