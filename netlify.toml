@@ -1,4 +1,4 @@
 [[redirects]]
-  from = "http://estate-olanda.netlify.com/*"
-  to = "http://lovecode.nl/:splat"
+  from = "https://estate-olanda.netlify.com/*"
+  to = "https://lovecode.nl/:splat"
   status = 301
