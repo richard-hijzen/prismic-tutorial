@@ -70,7 +70,7 @@ class HeaderNav extends React.Component {
             <a href="#" className="snipcart-checkout">
               <FaShoppingCart />
             </a>
-              <span className="snipcart-total-items">{this.state.items}</span>
+            <p>{this.state.items}</p>
               
           </div>
         </div>
