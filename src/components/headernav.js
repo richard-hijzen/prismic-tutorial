@@ -10,15 +10,41 @@ class HeaderNav extends React.Component {
     super(props);
     this.state = {
       condition: 'hide',
-      count: Snipcart.api.items.count(),
+      items: 0,
     }
 
     this.handleClick = this.handleClick.bind(this);
   };
 
+  updateItemTotal = (qty) => {
+    this.setState({ items: qty })
+}
+
   componentDidMount() {
+    if (window.Snipcart) {
+      //this allows it to work when switching pages
+      var count = window.Snipcart.api.items.count();
+      this.updateItemTotal(count)
+
+      //this allows it to work when you add or change items
+      window.Snipcart.subscribe('cart.closed', () => {
+          var count = window.Snipcart.api.items.count();
+          this.updateItemTotal(count)
+      });
+
+      //this allows it to work on refreshing the page
+      window.Snipcart.subscribe('cart.ready', (data) => {
+          var count = window.Snipcart.api.items.count();
+          this.updateItemTotal(count)
+      });
+  };
       (!this.state.condition == 'hide') ? document.body.classList.add('modal-open') : document.body.classList.remove('modal-open');
   }
+
+  componentWillUnmount () {
+    window.Snipcart.unsubscribe('cart.closed');
+    window.Snipcart.unsubscribe('cart.ready');
+}
  
   handleClick = () => {
     this.setState({
@@ -44,7 +70,7 @@ class HeaderNav extends React.Component {
             <a href="#" className="snipcart-checkout">
               <FaShoppingCart />
             </a>
-              <span className="snipcart-total-items">{this.state.count}</span>
+              <span className="snipcart-total-items">{this.state.items}</span>
               
           </div>
         </div>
