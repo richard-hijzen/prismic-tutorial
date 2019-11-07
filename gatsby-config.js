@@ -10,7 +10,7 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    siteUrl: `https://estate-olanda.netlify.com`,
+    siteUrl: `https://lovecode.nl`,
   },
   plugins: [
     {
