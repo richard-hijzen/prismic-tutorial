@@ -49,6 +49,7 @@ class HeaderNav extends React.Component {
         <button
           id="responsive-menu"
           className="headerMenu"
+          aria-label="menu"
           onClick={this.handleClick}
         >
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
