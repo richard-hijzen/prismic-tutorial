@@ -84,6 +84,12 @@ export default function HelmComp({home,article,title,description,fb_type,fb_titl
     return (
         <Helmet htmlAttributes={{ lang : 'nl-NL' }}>
             <link
+            rel="preload" 
+            href="https://fonts.googleapis.com/css?family=Calibre:300,400,400i,500,700|Source+Sans+Pro:300,400,400i,700&amp;display=swap" 
+            as="style"
+            onload="this.onload=null;this.rel='stylesheet'"
+            />
+            <link
             rel="preload"
             href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
             as="style"
