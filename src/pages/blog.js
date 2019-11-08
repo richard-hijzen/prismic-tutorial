@@ -20,7 +20,7 @@ const Index = ({ data }) => {
             fb_title={document.node.data.social_title}
             fb_description={document.node.data.social_description}
             fb_image={document.node.data.social_image.url}
-            fb_url={`https://estate-olanda.netlify.com${document.node.data.social_url.url}`}
+            fb_url={document.node.data.social_url.url}
             fb_site_name="Estate in Olanda."
             twitter_alt_image={document.node.data.twitter_image_alt_name.text}
             twitter_card="summary_large_image"

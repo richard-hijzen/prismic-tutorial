@@ -252,7 +252,7 @@ const App = props => {
         fb_title={doc.social_title}
         fb_description={doc.social_description}
         fb_image={doc.social_image.url}
-        fb_url="https://lovecode.nl"
+        fb_url=""
         fb_site_name="Estate in Olanda."
         twitter_alt_image={doc.twitter_image_alt_name.text}
         twitter_card="summary_large_image"
