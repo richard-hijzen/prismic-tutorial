@@ -119,6 +119,7 @@ export default function HelmComp({home,article,title,description,fb_type,fb_titl
             <meta property="og:image:height" content="500" />
             <meta property="og:url" content={fb_url} />
             <meta property="og:site_name" content={fb_site_name} />
+            <meta property="fb:app_id" content="543581336427027" />
             <meta name="twitter:image:alt" content={twitter_alt_image} />
             <meta name="twitter:card" content={twitter_card}></meta>
             
