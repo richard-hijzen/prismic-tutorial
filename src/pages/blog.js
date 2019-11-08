@@ -44,7 +44,7 @@ const Index = ({ data }) => {
                 </h2>
                 <p>{document.node.data.summary.text}</p>
 
-                <div id="read-more">
+                <div className="read-more">
                   <p>
                     <Link to={`/${document.node.uid}`}>Scopri di piu</Link>
                   </p>
