@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, graphql } from "gatsby";
-import { Helmet } from "react-helmet"
+import AverageRating from '../components/averageRating';
 import HelmComp from '../components/helmcomp';
 import HeaderNav from "../components/headernav";
 import Img from "gatsby-image";
@@ -50,6 +50,7 @@ const AllProducts = ({ data }) => {
                   <div id="price">
                     <p>€{document.node.data.price.text}</p>
                   </div>
+                  <AverageRating />
                 </div>
               </Link>
               <button

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import AverageRating from './averageRating';
 import { firebase } from '../firebase';
 import { Time } from './date.js';
 import "./commentform.scss"
@@ -27,7 +26,6 @@ export default function CommentForm(props) {
 
   return (
     <div className="comment-container">
-      <AverageRating />
       <div className="commentform container">
         <h3>Leave a comment here</h3>
         <form
