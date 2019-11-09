@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import { firebase } from '../firebase';
+import Rating from '@material-ui/lab/Rating';
 import { Time } from './date.js';
 import "./commentform.scss"
 
 export default function CommentForm(props) {
   const [name, setName] = useState();
   const [email, setEmail] = useState();
+  const [value, setValue] = useState(4);
   const [message, setMessage] = useState();
   const id = props.id;
+  const product = props.product;
 
 
     // Saves a new message on the Cloud Firestore.
@@ -46,6 +49,19 @@ export default function CommentForm(props) {
               onChange={(e) => setEmail(e.target.value)}
             />
           </p>
+          {product ? 
+          <p>
+            <label htmlFor="rating">Rating:</label>
+            <Rating
+            name="simple-controlled"
+            value={value}
+            onChange={(event, newValue) => {
+              setValue(newValue);
+            }}
+            />
+            </p>
+            : ""
+          }
           <p>
             <label htmlFor="textarea">Message:</label>
             <textarea

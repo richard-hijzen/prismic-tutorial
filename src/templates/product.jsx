@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
-import { Helmet } from "react-helmet"
+import AverageRating from '../components/averageRating';
 import HelmComp from '../components/helmcomp';
 import HeaderNav from '../components/headernav';
 import CommentForm from '../components/commentform';
@@ -42,6 +42,7 @@ const Product = ({ data: { prismicProduct } }) => {
             <h1 className="product-title">{data.brand.text}</h1>
             <h6 className="product-short-description">{data.short_description.text}</h6>
             <h5 className="product-price">€{data.price.text}</h5>
+            <AverageRating />
             <div className="product-single-content container" dangerouslySetInnerHTML={{ __html: data.description.html }} />
             <button
               className="snipcart-add-item"
@@ -57,7 +58,10 @@ const Product = ({ data: { prismicProduct } }) => {
             </button>
           </div>
         </article> 
-        <CommentForm id={pageId} />
+        <CommentForm 
+          id={pageId}
+          product={true}
+         />
         <Comments id={pageId} />
       </main>
     </>
