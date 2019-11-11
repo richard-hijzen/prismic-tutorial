@@ -14,16 +14,16 @@ import {
   const SocialShare = ({url}) => {
       return(
           <>
-            <FacebookShareButton url={`https://lovecode.nl${url}`}>
+            <FacebookShareButton url={`https://lovecode.nl${url}/`}>
                 <FacebookIcon size={32} round={false} borderRadius={5} />
             </FacebookShareButton>
-            <TwitterShareButton url={`https://lovecode.nl${url}`}>
+            <TwitterShareButton url={`https://lovecode.nl${url}/`}>
                 <TwitterIcon size={32} round={false} borderRadius={5} />
             </TwitterShareButton>
-            <WhatsappShareButton url={`https://lovecode.nl${url}`}>
+            <WhatsappShareButton url={`https://lovecode.nl${url}/`}>
                 <WhatsappIcon size={32} round={false} borderRadius={5} />
             </WhatsappShareButton>
-            <EmailShareButton url={`https://lovecode.nl${url}`}>
+            <EmailShareButton url={`https://lovecode.nl${url}/`}>
                 <EmailIcon size={32} round={false} borderRadius={5} />
             </EmailShareButton>
           </>
