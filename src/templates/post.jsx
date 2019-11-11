@@ -2,6 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import HelmComp from '../components/helmcomp';
+import SocialShare from '../components/socialShare';
 import HeaderNav from '../components/headernav';
 import CommentForm from '../components/commentform';
 import Comments from '../components/comments';
@@ -37,6 +38,7 @@ const Post = ({ data: { prismicPost } }) => {
         <h1>{data.title.text}</h1>
         <article className="blog-post">
           <div className="blog-post-content container" dangerouslySetInnerHTML={{ __html: data.content.html }} />
+          <SocialShare url={data.social_url.url}/>
         </article> 
         <CommentForm id={pageId} />
         <Comments id={pageId} />

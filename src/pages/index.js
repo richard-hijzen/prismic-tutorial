@@ -3,7 +3,6 @@ import { Link, graphql } from "gatsby"
 import HeaderNav from "../components/headernav"
 import Footer from "../components/footer"
 import Img from "gatsby-image"
-import { Helmet } from "react-helmet"
 import HelmComp from '../components/helmcomp';
 import { ImageGallery } from "../components/slices"
 import "../styles/bootstrap/bootstrap.min.css"
