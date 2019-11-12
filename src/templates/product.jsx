@@ -62,7 +62,10 @@ const Product = ({ data: { prismicProduct } }) => {
           id={pageId}
           product={true}
          />
-        <Comments id={pageId} />
+        <Comments 
+          id={pageId}
+          product={true} 
+        />
       </main>
     </>
   );

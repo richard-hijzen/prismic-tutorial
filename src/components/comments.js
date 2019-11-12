@@ -7,6 +7,7 @@ class Comments extends React.Component {
   constructor(props) {
     super(props);
     const id = this.props.id;
+    
     this.state = {
       comments: []
     };
@@ -26,6 +27,7 @@ class Comments extends React.Component {
 
   render() {
     const { comments } = this.state;
+    const product = this.props.product;
     let hasComments;
 
     if(comments.length > 0) {
@@ -37,6 +39,7 @@ class Comments extends React.Component {
                                     <h5>{comment.name}</h5>
                                     <h6>{comment.time}</h6>
                                   </div>
+                                  {product ?
                                   <div className="rating">
                                     <p>
                                       <Rating
@@ -44,7 +47,8 @@ class Comments extends React.Component {
                                       value={comment.rating.value} 
                                       />
                                     </p>
-                                  </div>
+                                  </div> : ''
+                                  }
                                   <div className="comments-message">
                                     <p>{comment.message}</p>
                                   </div>
