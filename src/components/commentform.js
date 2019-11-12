@@ -20,6 +20,7 @@ export default function CommentForm(props) {
         name: `${name}`,
         email: `${email}`,
         message: `${message}`,
+        rating: {value},
         timestamp: new Date(),
         time: Time
       }).catch(function(error) {
@@ -30,7 +31,7 @@ export default function CommentForm(props) {
   return (
     <div className="comment-container">
       <div className="commentform container">
-        <h3>Leave a comment here</h3>
+        {product ? <h3>Leave a review here</h3> : <h3>Leave a comment here</h3>}
         <form
           name={id}
           method="post"

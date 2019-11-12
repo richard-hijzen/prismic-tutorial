@@ -1,6 +1,6 @@
 import React from "react"
 import { firebase } from '../firebase';
-import { Time } from './date.js';
+import Rating from '@material-ui/lab/Rating';
 import "./comments.scss"
 
 class Comments extends React.Component {
@@ -19,7 +19,7 @@ class Comments extends React.Component {
       .get()
       .then(querySnapshot => {
         const data = querySnapshot.docs.map(doc => doc.data());
-        console.log(data);
+        //console.log(data);
         this.setState({ comments: data });
       });
   }
@@ -36,6 +36,14 @@ class Comments extends React.Component {
                                   <div className="comments-header">
                                     <h5>{comment.name}</h5>
                                     <h6>{comment.time}</h6>
+                                  </div>
+                                  <div className="rating">
+                                    <p>
+                                      <Rating
+                                      readOnly
+                                      value={comment.rating.value} 
+                                      />
+                                    </p>
                                   </div>
                                   <div className="comments-message">
                                     <p>{comment.message}</p>

@@ -50,7 +50,7 @@ const AllProducts = ({ data }) => {
                   <div id="price">
                     <p>€{document.node.data.price.text}</p>
                   </div>
-                  <AverageRating />
+                  <AverageRating id={document.node.uid}/>
                 </div>
               </Link>
               <button

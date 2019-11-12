@@ -42,7 +42,7 @@ const Product = ({ data: { prismicProduct } }) => {
             <h1 className="product-title">{data.brand.text}</h1>
             <h6 className="product-short-description">{data.short_description.text}</h6>
             <h5 className="product-price">€{data.price.text}</h5>
-            <AverageRating />
+            <AverageRating id={pageId}/>
             <div className="product-single-content container" dangerouslySetInnerHTML={{ __html: data.description.html }} />
             <button
               className="snipcart-add-item"
