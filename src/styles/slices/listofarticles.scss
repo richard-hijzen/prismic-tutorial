@@ -1,3 +1,5 @@
+@import '../_variables.scss';
+
 .homepage-slice-wrapper-article-list {
     margin-bottom: 1.2rem;
 
@@ -8,7 +10,7 @@
         h2 {
             font-size: 3rem;
             margin-bottom: 1.2rem;
-            color: #fff;
+            color: $primary-text-color;
         }
     }
 }

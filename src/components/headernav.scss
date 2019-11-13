@@ -1,3 +1,5 @@
+@import '../styles/_variables.scss';
+
 #mainNav {
     display: flex;
     justify-content: space-between;
@@ -21,16 +23,16 @@
             margin-top: 0.8rem;
 
             li a {
-                color: #fff;
+                color: $primary-text-color;
             }
         }
 
         .signin-up {
             margin: 1.4rem 1rem;
-            color: #fff;
+            color: $primary-text-color;
 
              svg {
-                 fill: #fff;
+                 fill: $primary-text-color;
              }
              .snipcart-user-profile {
                  svg {
@@ -42,12 +44,12 @@
     #responsive-menu {
         display: none;
         background-color: transparent;
-        border: 0.3px solid #fff;
+        border: 0.3px solid $primary-text-color;
         width: 56px;
         height: 50px;
         svg {
             width: 32px;
-            fill: #fff;
+            fill: $primary-text-color;
         }
     }
 
