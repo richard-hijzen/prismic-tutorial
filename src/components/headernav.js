@@ -1,6 +1,7 @@
 import React from 'react';
+import { Link } from "gatsby"
 import TopMenu from './topmenu';
-import TitleMenu from './titleMenu';
+import Logo from '../images/lovecode.png';
 import ErrorBoundary from './ErrorBoundary'
 import { FaUserAlt, FaShoppingCart } from 'react-icons/fa'
 import './headernav.scss';
@@ -31,7 +32,7 @@ class HeaderNav extends React.Component {
       <ErrorBoundary>
       <nav id="mainNav">
         <div className="navbar-brand">
-          <TitleMenu />
+          <Link to="/"><img src={Logo} alt="lovecode logo" style={{maxHeight: 40}}/></Link>
         </div>
         <div className={this.state.condition ? 'hide wide' : 'show'}>
           <TopMenu />

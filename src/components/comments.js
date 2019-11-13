@@ -7,7 +7,6 @@ class Comments extends React.Component {
   constructor(props) {
     super(props);
     const id = this.props.id;
-    
     this.state = {
       comments: []
     };
