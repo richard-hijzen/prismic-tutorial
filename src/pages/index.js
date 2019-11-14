@@ -197,20 +197,19 @@ const PostSlices = ({ slices }) => {
 const PostBody = ({ homepage }) => {
   return (
     <div>
-      <header
-        style={{
-          backgroundImage: `url(${homepage.homepage_banner[0].image.url})`,
-          backgroundPosition: `center`,
-          backgroundSize: `cover`,
-          backgroundRepeat: `no-repeat`,
-          maxWidth: `100%`,
-          height: 400,
-          color: `#fff`,
-        }}
-      >
+      <header>
         <div id="header-parts">
           <HeaderNav />
-          <div id="intro">
+          <div id="intro" 
+              style={{
+                backgroundImage: `url(${homepage.homepage_banner[0].image.url})`,
+                backgroundPosition: `center`,
+                backgroundSize: `cover`,
+                backgroundRepeat: `no-repeat`,
+                maxWidth: `100%`,
+                height: 400,
+                color: `#fff`,
+              }}>
             <p id="header-text">{homepage.homepage_banner[0].tagline.text}</p>
             <Link
               id="header-button"
