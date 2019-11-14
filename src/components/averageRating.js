@@ -1,6 +1,7 @@
 import React from "react";
 import Rating from '@material-ui/lab/Rating';
 import { firebase } from '../firebase';
+import './averagerating.scss'
 
 class AverageRating extends React.Component {
     constructor(props) {
@@ -42,8 +43,7 @@ class AverageRating extends React.Component {
                 display: `flex`,
                 alignItems: `center`,
                 padding: `0 0 10px 10px`,
-                color: `#808080`,
-                wordBreak: `break-word`
+                color: `#808080`
             }}>
             {(comments.length > 1) ? (
                 <>
