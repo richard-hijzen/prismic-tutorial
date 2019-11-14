@@ -42,7 +42,8 @@ class AverageRating extends React.Component {
                 display: `flex`,
                 alignItems: `center`,
                 padding: `0 0 10px 10px`,
-                color: `#808080`
+                color: `#808080`,
+                wordBreak: `break-word`
             }}>
             {(comments.length > 1) ? (
                 <>
