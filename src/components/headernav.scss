@@ -85,7 +85,7 @@
             margin-top: 60px;
 
             li a {
-                color: #fff;
+                color: $text-color-white;
             }
 
             .nav-item {
@@ -97,6 +97,10 @@
         .signin-up {
             display: inline-flex;
             padding-left: 30px;
+
+            svg {
+                fill: $text-color-white;
+            }
         }
     }
 
