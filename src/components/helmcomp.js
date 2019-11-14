@@ -114,8 +114,8 @@ export default function HelmComp({home,article,title,description,fb_type,fb_titl
             <meta property="og:type" content={fb_type} />
             <meta property="og:title" content={fb_title} />
             <meta property="og:description" content={fb_description} />
-            <meta property="og:image" itemProp="image" content={fb_image} />
-            <meta property="og:url" content={`https://lovecode.nl${fb_url}`} />
+            <meta property="og:image" content={fb_image} />
+            <meta property="og:url" content={`https://lovecode.nl${fb_url}/`} />
             <meta property="og:site_name" content={fb_site_name} />
             <meta property="fb:app_id" content="543581336427027" />
             <meta name="twitter:image:alt" content={twitter_alt_image} />

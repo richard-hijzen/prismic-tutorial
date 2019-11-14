@@ -21,7 +21,7 @@ const Product = ({ data: { prismicProduct } }) => {
         fb_type="website"
         fb_title={data.social_title}
         fb_description={data.social_description}
-        fb_image={data.social_image.url}
+        fb_image={data.social_image.localFile.childImageSharp.original.src}
         fb_url={data.social_url.url}
         fb_site_name="Estate in Olanda."
         twitter_alt_image={data.twitter_image_alt_name.text}
@@ -82,7 +82,13 @@ export const pageQuery = graphql`
           meta_title
           social_description
           social_image {
-            url
+            localFile {
+              childImageSharp {
+                original {
+                  src
+                }
+              }
+            }
           }
           social_title
           social_url {
