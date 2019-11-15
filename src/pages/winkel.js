@@ -4,6 +4,7 @@ import AverageRating from '../components/averageRating';
 import HelmComp from '../components/helmcomp';
 import HeaderNav from "../components/headernav";
 import Img from "gatsby-image";
+import Sort from "../components/sort";
 import "../styles/components/winkel.scss";
 
 const AllProducts = ({ data }) => {
@@ -31,6 +32,7 @@ const AllProducts = ({ data }) => {
           </header>
         ))}
       <main className="shop-page container">
+        <Sort />
         <ul>
           {data.allPrismicProduct.edges.map(document => (
             <li key={document.node.uid} className="product">
@@ -78,7 +80,7 @@ export default AllProducts
 
 export const prodQuery = graphql`
   query ProductQuery {
-    allPrismicProduct {
+    allPrismicProduct(sort: {order: DESC, fields: first_publication_date}) {
       edges {
         node {
           uid
