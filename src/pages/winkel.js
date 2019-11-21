@@ -1,13 +1,32 @@
-import React from "react";
-import { Link, graphql } from "gatsby";
-import AverageRating from '../components/averageRating';
+import React, { useState, useEffect } from "react";
+import { graphql } from "gatsby";
 import HelmComp from '../components/helmcomp';
 import HeaderNav from "../components/headernav";
 import Img from "gatsby-image";
 import Sort from "../components/sort";
+import ProductList from "../components/productlist";
 import "../styles/components/winkel.scss";
 
-const AllProducts = ({ data }) => {
+export const AllProducts = ({ data }) => {
+  const [state, setState] = useState({
+    sortField: 0,
+  }); 
+  const postData = data.allPrismicProduct.edges
+  const [sorter, setSorter] = useState();             
+
+  const handleChange = name => event => {
+    setState({
+      ...state,
+      [name]: event.target.value,
+    });
+    setSorter(state.sortField);
+  };
+
+    useEffect(() => {
+      setSorter((sorter != state.sortField) ? state.sortField : sorter);
+      
+    })
+          
   return (
     <>
       {data.allPrismicWinkel.edges.map(document => (
@@ -32,45 +51,14 @@ const AllProducts = ({ data }) => {
           </header>
         ))}
       <main className="shop-page container">
-        <Sort />
-        <ul>
-          {data.allPrismicProduct.edges.map(document => (
-            <li key={document.node.uid} className="product">
-              <Link to={`/${document.node.uid}`}>
-                <div className="product-details">
-                  <div className="img-container">
-                  <Img
-                      fluid={document.node.data.image.localFile.childImageSharp.fluid}
-                    />
-                  </div>
-                  <div id="product-intro">
-                    <h2>
-                        {document.node.data.brand.text}
-                    </h2>
-                    <p>{document.node.data.short_description.text}</p>
-                  </div>
-                  <div id="price">
-                    <p>€{document.node.data.price.text}</p>
-                  </div>
-                  <AverageRating id={document.node.uid}/>
-                </div>
-              </Link>
-              <button
-                className="snipcart-add-item"
-                aria-label="add-to-cart"
-                data-item-id={document.node.uid}
-                data-item-image={document.node.data.image.url}
-                data-item-name={document.node.data.brand.text}
-                data-item-price={document.node.data.price.text}
-                data-item-weight="20"
-                data-item-url={`https://estate-olanda.netlify.com/${document.node.uid}`}
-                data-item-description={document.node.data.short_description.text}>
-                    in mandje
-              </button>
-              
-            </li>
-          ))}
-        </ul>
+        <Sort 
+          sortField={state.sortField}
+          handleChange={handleChange}
+        />
+        <ProductList
+          postData={postData}
+          sorter={sorter}
+        />
       </main>
     </>
   )
@@ -80,11 +68,14 @@ export default AllProducts
 
 export const prodQuery = graphql`
   query ProductQuery {
-    allPrismicProduct(sort: {order: DESC, fields: first_publication_date}) {
+    allPrismicProduct {
       edges {
         node {
           uid
           data {
+            title {
+              text
+            }
             brand {
               text
             }
@@ -148,3 +139,4 @@ export const prodQuery = graphql`
     }
   }
 `
+

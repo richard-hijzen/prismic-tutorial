@@ -2,13 +2,8 @@ import React from 'react';
 import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-import NativeSelect from '@material-ui/core/NativeSelect';
 
-export default function NativeSelects() {
-    const [state, setState] = React.useState({
-      age: '',
-      name: 'hai',
-    });
+export default function NativeSelects({sortField, handleChange}) {
   
     const inputLabel = React.useRef(null);
     const [labelWidth, setLabelWidth] = React.useState(0);
@@ -16,12 +11,6 @@ export default function NativeSelects() {
       setLabelWidth(inputLabel.current.offsetWidth);
     }, []);
   
-    const handleChange = name => event => {
-      setState({
-        ...state,
-        [name]: event.target.value,
-      });
-    };
   
     return (
         <div style={{margin: 30,
@@ -34,19 +23,19 @@ export default function NativeSelects() {
                 </InputLabel>
                 <Select
                 native
-                value={state.age}
-                onChange={handleChange('age')}
+                value={sortField}
+                onChange={handleChange('sortField')}
                 labelWidth={labelWidth}
                 inputProps={{
-                    name: 'sorteer',
+                    name: 'sortField',
                     id: 'outlined-age-native-simple',
                 }}
                 >
                 <option value="" />
-                <option value={10}>prijs aflopend</option>
-                <option value={20}>prijs oplopend</option>
-                <option value={30}>naam A-Z</option>
-                <option value={30}>naam Z-A</option>
+                <option value={1}>prijs oplopend</option>
+                <option value={2}>prijs aflopend</option>
+                <option value={3}>naam A-Z</option>
+                <option value={4}>naam Z-A</option>
                 </Select>
             </FormControl>
         </div>
