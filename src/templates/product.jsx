@@ -1,6 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import Img from 'gatsby-image';
+import ProductGallery from "../components/productimgslider"
 import AverageRating from '../components/averageRating';
 import HelmComp from '../components/helmcomp';
 import HeaderNav from '../components/headernav';
@@ -9,9 +9,11 @@ import Comments from '../components/comments';
 import '../styles/app.scss';
 import '../styles/templates/product.scss';
 
+
 const Product = ({ data: { prismicProduct } }) => {
   const { data } = prismicProduct;
   const pageId = prismicProduct.uid;
+  const slides = data.product_pictures
 
   return (
     <>
@@ -31,12 +33,11 @@ const Product = ({ data: { prismicProduct } }) => {
         <HeaderNav />
       </header>
       <main id="product-single-main">
+      
+            
         <article className="single-product container">
-          <div className="product-image">
-            <Img 
-              fluid={data.image.localFile.childImageSharp.fluid} 
-              alt={data.image.alt}
-            />
+          <div className="container" style={{width: 410}}>
+            <ProductGallery slice={slides} />
           </div>
           <div className="product-data">
             <h1 className="product-title">{data.brand.text}</h1>
@@ -131,8 +132,8 @@ export const pageQuery = graphql`
             product_image {
               localFile {
                 childImageSharp {
-                    fluid(maxHeight: 400, maxWidth: 960, quality: 90) {
-                        ...GatsbyImageSharpFluid
+                    fixed(height: 400, width: 400, quality: 90) {
+                        ...GatsbyImageSharpFixed
                       }
                 }
               }

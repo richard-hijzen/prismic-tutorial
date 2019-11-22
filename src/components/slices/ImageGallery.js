@@ -4,7 +4,7 @@ import Slider from "react-slick"
 import "./imagegallery.scss"
 
 
-const ImageGallery = ({ slice }) => {
+const ImageGallery = ({ slice, index }) => {
 
   let settings = {
      arrows: false,
@@ -20,7 +20,7 @@ const ImageGallery = ({ slice }) => {
         dangerouslySetInnerHTML={{
           __html: slice.primary.name_of_the_gallery.html,
         }}
-      />
+      /> 
       <Slider {...settings}>
         {slice.items.map(doc => (
           <div>

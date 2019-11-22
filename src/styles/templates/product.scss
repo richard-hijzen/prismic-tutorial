@@ -1,12 +1,24 @@
+
+
 .single-product {
-    display: flex;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
     padding: 20px;
     background: #fff;
 
-    div {
-        flex: 1;
-        margin: 20px;
+    .slick-dots{
+        bottom: -60px;
+        li {
+            width: 50px;
+            height: 50px;
+            margin: 0;
+            a {
+                .gatsby-image-wrapper {
+                    width: 50px !important;
+                    height: 50px !important;
+                }
+            }
+        } 
     }
 
     .product-data {
@@ -32,13 +44,10 @@
             border-radius: 4px;
         }
     }
-
-
-
 }
 
 @media screen and (max-width: 900px) {
     .single-product {
-        flex-direction: column;
+        grid-template-columns: 1fr;
     }
 } 
