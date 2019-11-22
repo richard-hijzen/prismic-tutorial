@@ -36,7 +36,7 @@ const Product = ({ data: { prismicProduct } }) => {
       
             
         <article className="single-product container">
-          <div className="container" style={{width: 410}}>
+          <div className="product-image container" style={{width: 410}}>
             <ProductGallery slice={slides} />
           </div>
           <div className="product-data">
