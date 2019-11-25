@@ -1,4 +1,4 @@
-
+@import '../_variables.scss';
 
 .single-product {
     display: grid;
@@ -43,6 +43,25 @@
             text-transform: uppercase;
             border-radius: 4px;
         }
+    }
+}
+
+.product-review-container {
+    background: $background-white;
+    padding: 30px 0;
+
+    .MuiPaper-root {
+        box-shadow: none;
+    }
+
+    .MuiExpansionPanelSummary-content {
+        display: flex;
+        justify-content: flex-end;
+        color: blue;
+    }
+
+    .comment-container {
+        width: 100%;
     }
 }
 

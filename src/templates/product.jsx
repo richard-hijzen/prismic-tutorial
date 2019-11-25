@@ -1,5 +1,9 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import ExpansionPanel from '@material-ui/core/ExpansionPanel';
+import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
+import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
+import Typography from '@material-ui/core/Typography';
 import ProductGallery from "../components/productimgslider"
 import AverageRating from '../components/averageRating';
 import HelmComp from '../components/helmcomp';
@@ -58,15 +62,28 @@ const Product = ({ data: { prismicProduct } }) => {
                   in winkelmand
             </button>
           </div>
-        </article> 
-        <CommentForm 
-          id={pageId}
-          product={true}
-         />
-        <Comments 
-          id={pageId}
-          product={true} 
-        />
+        </article>
+        <div className="product-review-container container">
+          <ExpansionPanel>
+            <ExpansionPanelSummary
+              aria-controls="panel1d-content"
+              id="panel1d-header"
+            >
+              Klik hier om een review achter te laten 
+            </ExpansionPanelSummary>
+            <ExpansionPanelDetails>
+              <CommentForm 
+                id={pageId}
+                product={true}
+              />
+            </ExpansionPanelDetails>
+            </ExpansionPanel>
+            
+            <Comments 
+              id={pageId}
+              product={true} 
+            />
+        </div>
       </main>
     </>
   );
