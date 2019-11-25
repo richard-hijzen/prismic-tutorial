@@ -9,7 +9,7 @@ const ProductGallery = ({ slice }) => {
   slice.map(doc => (
   <a>
     <Img
-        fixed={doc.product_image.localFile.childImageSharp.fixed}
+        fluid={doc.product_image.localFile.childImageSharp.fluid}
       />
   </a>
   ))
@@ -34,7 +34,7 @@ const ProductGallery = ({ slice }) => {
         {slice.map(doc => (
           <div key={doc.product_image.alt}>
             <Img
-              fixed={doc.product_image.localFile.childImageSharp.fixed}
+              fluid={doc.product_image.localFile.childImageSharp.fluid}
             />
           </div>
         ))}
