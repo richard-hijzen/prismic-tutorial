@@ -12,6 +12,7 @@ export const AllProducts = ({ data }) => {
     sortField: 0,
   }); 
   const postData = data.allPrismicProduct.edges
+  const winkel = data.allPrismicWinkel.edges
   const [sorter, setSorter] = useState();             
 
   const handleChange = name => event => {
@@ -51,6 +52,18 @@ export const AllProducts = ({ data }) => {
           </header>
         ))}
       <main className="shop-page container">
+        {data.allPrismicWinkel.edges.map(document => (
+            <div className="selling-points">
+              {document.node.data.selling_points.map(doc => (
+                <div className="selling-point">
+                <Img
+                  fluid={doc.image_selling_point.localFile.childImageSharp.fluid}
+                />
+                <p>{doc.selling_point}</p>
+                </div>
+              ))}
+            </div>
+          ))}
         <Sort 
           sortField={state.sortField}
           handleChange={handleChange}
@@ -132,6 +145,18 @@ export const prodQuery = graphql`
             }
             title {
               text
+            }
+            selling_points {
+              image_selling_point {
+                localFile {
+                  childImageSharp {
+                    fluid(maxHeight: 400, maxWidth: 400, quality: 90) {
+                      ...GatsbyImageSharpFluid
+                    }
+                  }
+                }
+              }
+              selling_point
             }
           }
         }
