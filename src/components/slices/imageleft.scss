@@ -1,0 +1,9 @@
+.image-left {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 20px;
+
+    div {
+        padding: 40px 30px;
+    }
+}

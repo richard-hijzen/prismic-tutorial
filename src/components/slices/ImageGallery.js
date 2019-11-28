@@ -4,7 +4,7 @@ import Slider from "react-slick"
 import "./imagegallery.scss"
 
 
-const ImageGallery = ({ slice, index }) => {
+const ImageGallery = ({ slice }) => {
 
   let settings = {
      arrows: false,
@@ -22,8 +22,8 @@ const ImageGallery = ({ slice, index }) => {
         }}
       /> 
       <Slider {...settings}>
-        {slice.items.map(doc => (
-          <div>
+        {slice.items.map((doc, index) => (
+          <div key={index}>
             <Img
               className="d-block w-100"
               fluid={doc.gallery_image.localFile.childImageSharp.fluid}
