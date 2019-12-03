@@ -3,7 +3,7 @@ import { Link, graphql } from "gatsby"
 import HeaderNav from "../components/headernav"
 import Footer from "../components/footer"
 import HelmComp from '../components/helmcomp';
-import { ImageGallery, Text, ArticleList, ImageLeft, ImageRight, CTAFeature } from "../components/slices"
+import { ImageGallery, Text, ArticleList, Quote, ImageAside, CTAFeature } from "../components/slices"
 import "../styles/bootstrap/bootstrap.min.css"
 import "../styles/app.scss"
 import "../styles/slices/listofarticles.scss"
@@ -38,17 +38,17 @@ const PostSlices = ({ slices }) => {
             </section>
           )
 
-          case "image_left_text_right":
-          return (
-            <section key={index} className="homepage-slice-wrapper-image-left">
-              {<ImageLeft slice={slice} />}
-            </section>
-          )
-
-          case "image_right":
+          case "quote":
             return (
-              <section key={index} className="homepage-slice-wrapper-image-right">
-                {<ImageRight slice={slice} />}
+              <section key={index} className="homepage-slice-wrapper-quote">
+                {<Quote slice={slice} />}
+              </section>
+            )
+
+          case "image_aside":
+            return (
+              <section key={index} className="homepage-slice-wrapper-image-aside">
+                {<ImageAside slice={slice} />}
               </section>
             )
 
@@ -184,6 +184,37 @@ export const indexQuery = graphql`
               }
             }
           }
+          ... on PrismicHomepagePageContentQuote {
+            id
+            slice_type
+            primary {
+              name_of_the_author {
+                text
+              }
+              quote {
+                text
+              }
+            }
+          }
+          ... on PrismicHomepagePageContentImageAside {
+            id
+            primary {
+              content {
+                html
+              }
+              image {
+                localFile {
+                  childImageSharp {
+                    fluid(maxWidth: 700, maxHeight: 700) {
+                      ...GatsbyImageSharpFluid
+                    }
+                  }
+                }
+              }
+              side
+            }
+            slice_type
+          }
           ... on PrismicHomepagePageContentListOfArticles {
             id
             slice_type
@@ -240,42 +271,6 @@ export const indexQuery = graphql`
               }
             }
           }
-          ... on PrismicHomepagePageContentImageLeftTextRight {
-            id
-            slice_type
-            primary {
-              content {
-                html
-              }
-              image {
-                localFile {
-                  childImageSharp {
-                    fluid(maxWidth: 500, maxHeight: 500) {
-                      ...GatsbyImageSharpFluid
-                    }
-                  }
-                }
-              }
-            }
-          }
-          ... on PrismicHomepagePageContentImageRight {
-            id
-            slice_type
-            primary {
-              content {
-                html
-              }
-              image {
-                localFile {
-                  childImageSharp {
-                    fluid(maxWidth: 500, maxHeight: 500) {
-                      ...GatsbyImageSharpFluid
-                    }
-                  }
-                }
-              }
-            }
-          }
           ... on PrismicHomepagePageContentCtaFeature {
             id
             slice_type
@@ -286,10 +281,11 @@ export const indexQuery = graphql`
               cta_text {
                 text
               }
+              image_position
               featured_image {
                 localFile {
                   childImageSharp {
-                    fluid(maxWidth: 700, maxHeight: 700) {
+                    fluid(maxWidth: 1200, maxHeight: 600) {
                       ...GatsbyImageSharpFluid
                     }
                   }

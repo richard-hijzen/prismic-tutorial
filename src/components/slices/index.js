@@ -3,8 +3,7 @@ import Quote from "./Quote"
 import Text from "./Text"
 import ImageGallery from "./ImageGallery"
 import ArticleList from "./articleList"
-import ImageLeft from "./imageLeft"
-import ImageRight from "./imageRight"
+import ImageAside from "./imageAside"
 import CTAFeature from "./ctaFeature"
 
-export { ImageCaption, Quote, Text, ImageGallery, ArticleList, ImageLeft, ImageRight, CTAFeature }
+export { ImageCaption, Quote, Text, ImageGallery, ArticleList, ImageAside, CTAFeature }

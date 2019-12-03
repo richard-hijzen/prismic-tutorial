@@ -1,0 +1,26 @@
+.right, 
+.left {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 60px 20px;
+
+    div {
+        padding: 40px 30px;
+    }
+
+    .image-aside {
+        margin: 15px;
+    }
+}
+
+.left {
+    .image-aside{
+        -webkit-order: 1;
+        order: 1;
+    }
+    div{
+        -webkit-order: 2;
+        order: 2;
+    }
+
+}

@@ -1,12 +1,12 @@
 import React from "react"
 import Img from "gatsby-image"
-import "./imageright.scss"
+import "./imageaside.scss"
 
 
-const ImageRight = ({ slice }) => {
+const ImageAside = ({ slice }) => {
 
   return (
-    <div className="image-right">
+    <div className={slice.primary.side}>
         <div 
             dangerouslySetInnerHTML={{
             __html: slice.primary.content.html,
@@ -14,11 +14,11 @@ const ImageRight = ({ slice }) => {
 
         />
         <Img
-          className="d-block w-100"
+          className="image-aside"
           fluid={slice.primary.image.localFile.childImageSharp.fluid}
         />
     </div>
   )
 }
 
-export default ImageRight
+export default ImageAside
