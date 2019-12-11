@@ -2,7 +2,7 @@ import React from "react";
 import { graphql } from "gatsby"
 import { Helmet } from "react-helmet"
 import HelmComp from '../components/helmcomp';
-import { ImageCaption, Quote, Text } from "../components/slices"
+import { ImageCaption, Quote, Text, CenteredText } from "../components/slices"
 import HeaderNav from "../components/headernav"
 import ContactForm from "../components/contactform"
 
@@ -64,7 +64,7 @@ const PostSlices = ({ slices }) => {
         case 'centered_text':
           return (
             <div key={index} className="homepage-slice-wrapper">
-              {<Text slice={slice} />}
+              {<CenteredText slice={slice} />}
             </div>
           )
 
