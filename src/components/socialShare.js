@@ -15,16 +15,16 @@ import {
       return(
           <>
             <FacebookShareButton url={`https://lovecode.nl${url}/`}>
-                <FacebookIcon size={32} round={false} borderRadius={5} />
+                <FacebookIcon size={40} round={false} borderRadius={5} />
             </FacebookShareButton>
             <TwitterShareButton url={`https://lovecode.nl${url}/`}>
-                <TwitterIcon size={32} round={false} borderRadius={5} />
+                <TwitterIcon size={40} round={false} borderRadius={5} />
             </TwitterShareButton>
             <WhatsappShareButton url={`https://lovecode.nl${url}/`}>
-                <WhatsappIcon size={32} round={false} borderRadius={5} />
+                <WhatsappIcon size={40} round={false} borderRadius={5} />
             </WhatsappShareButton>
             <EmailShareButton url={`https://lovecode.nl${url}/`}>
-                <EmailIcon size={32} round={false} borderRadius={5} />
+                <EmailIcon size={40} round={false} borderRadius={5} />
             </EmailShareButton>
           </>
       )

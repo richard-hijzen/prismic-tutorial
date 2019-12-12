@@ -113,7 +113,7 @@ header {
     h1 {
         display: flex;
         justify-content: center;
-        color: #fff;
+        color: $primary-text-color;
         font-size: 3rem;
         margin: 30px 0 30px 0;
     }
@@ -130,8 +130,18 @@ header {
     background: #fff;
     border-radius: 5px;
     margin-top: 20px;
+    padding-bottom: 30px;
 
         .blog-post-content {
             padding: 40px 30px;
+        }
+
+        .social-share {
+            display: flex;
+            justify-content: center;
+
+            .SocialMediaShareButton {
+                margin: 5px;
+            }
         }
 }

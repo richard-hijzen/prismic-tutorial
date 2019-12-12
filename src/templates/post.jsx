@@ -38,7 +38,9 @@ const Post = ({ data: { prismicPost } }) => {
         <h1>{data.title.text}</h1>
         <article className="blog-post">
           <div className="blog-post-content container" dangerouslySetInnerHTML={{ __html: data.content.html }} />
-          <SocialShare url={data.social_url.url}/>
+          <div className="social-share">
+            <SocialShare url={data.social_url.url}/>
+          </div>
         </article> 
         <CommentForm id={pageId} />
         <Comments id={pageId} />
