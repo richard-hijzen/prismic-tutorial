@@ -1,11 +1,11 @@
 .right, 
 .left {
     display: grid;
-    grid-template-columns: 1fr 1fr;
     margin: 60px 20px;
 
     div {
         padding: 40px 30px;
+        align-self: center;
     }
 
     .image-aside {
@@ -23,4 +23,11 @@
         order: 2;
     }
 
+}
+
+@media screen and (min-width: 800px) {
+    .right
+    .left {
+        grid-template-columns: 1fr 1fr;
+    }
 }
