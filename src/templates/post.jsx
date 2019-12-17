@@ -6,6 +6,7 @@ import SocialShare from '../components/socialShare';
 import HeaderNav from '../components/headernav';
 import CommentForm from '../components/commentform';
 import Comments from '../components/comments';
+import MapContainer from '../components/slices/maps';
 import '../styles/app.scss';
 
 const Post = ({ data: { prismicPost } }) => {
@@ -41,6 +42,7 @@ const Post = ({ data: { prismicPost } }) => {
           <div className="social-share">
             <SocialShare url={data.social_url.url}/>
           </div>
+          <MapContainer />
         </article> 
         <CommentForm id={pageId} />
         <Comments id={pageId} />
@@ -83,6 +85,25 @@ export const pageQuery = graphql`
             childImageSharp {
               fluid(maxHeight: 400, maxWidth: 960, quality: 90) {
                 ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
+        body {
+          ... on PrismicPostBodyMap {
+            id
+            primary {
+              shop_location {
+                latitude
+                longitude
+              }
+            }
+          }
+          ... on PrismicPostBodyQuote {
+            id
+            primary {
+              quote {
+                text
               }
             }
           }

@@ -1,71 +1,13 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 import HeaderNav from "../components/headernav"
+import PostSlices from "../components/PostSlices"
 import Footer from "../components/footer"
 import HelmComp from '../components/helmcomp';
-import { ImageGallery, Text, ArticleList, Quote, ImageAside, CTAFeature } from "../components/slices"
 import "../styles/bootstrap/bootstrap.min.css"
 import "../styles/app.scss"
 import "../styles/slices/listofarticles.scss"
 
-
-// Sort and display the different slice options
-const PostSlices = ({ slices }) => {
-  return slices.map((slice, index) => {
-    const res = (() => {
-      switch (slice.slice_type) {
-        case "text_section":
-          return (
-            <section key={index} className="homepage-slice-wrapper">
-              <Text slice={slice} />
-            </section>
-          )
-
-        case "list_of_articles":
-          return (
-            <section
-              key={index}
-              className="homepage-slice-wrapper-article-list"
-            >
-              <ArticleList slice={slice} />
-            </section>
-          )
-
-        case "image_gallery":
-          return (
-            <section key={index} className="homepage-slice-wrapper-gallery">
-              {<ImageGallery slice={slice} />}
-            </section>
-          )
-
-          case "quote":
-            return (
-              <section key={index} className="homepage-slice-wrapper-quote">
-                {<Quote slice={slice} />}
-              </section>
-            )
-
-          case "image_aside":
-            return (
-              <section key={index} className="homepage-slice-wrapper-image-aside">
-                {<ImageAside slice={slice} />}
-              </section>
-            )
-
-            case "cta_feature":
-            return (
-              <section key={index} className="homepage-slice-wrapper-cta_feature">
-                {<CTAFeature slice={slice} />}
-              </section>
-            )
-
-        default:
-          return
-      }
-    })()
-    return res
-  })
-}
 
 // Display the title, menu and content of the Homepage
 const PostBody = ({ homepage }) => {

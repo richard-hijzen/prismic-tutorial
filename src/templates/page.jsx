@@ -2,7 +2,7 @@ import React from "react";
 import { graphql } from "gatsby"
 import { Helmet } from "react-helmet"
 import HelmComp from '../components/helmcomp';
-import { ImageCaption, Quote, Text, CenteredText } from "../components/slices"
+import PostSlices from "../components/PostSlices"
 import HeaderNav from "../components/headernav"
 import ContactForm from "../components/contactform"
 
@@ -50,45 +50,21 @@ export const pagesQuery = graphql`
               }
             }
           }
+          ... on PrismicPageBodyMap {
+            id
+            primary {
+              shop_location {
+                latitude
+                longitude
+              }
+            }
+          }
         }
       }
     }
   }
 `
 
-// Sort and display the different slice options
-const PostSlices = ({ slices }) => {
-  return slices.map((slice, index) => {
-    const res = (() => {
-      switch (slice.slice_type) {
-        case 'centered_text':
-          return (
-            <div key={index} className="homepage-slice-wrapper">
-              {<CenteredText slice={slice} />}
-            </div>
-          )
-
-        case 'quote':
-          return (
-            <div key={index} className="homepage-slice-wrapper">
-              {<Quote slice={slice} />}
-            </div>
-          )
-
-        case 'feature':
-          return (
-            <div key={index} className="homepage-slice-wrapper">
-              {<ImageCaption slice={slice} />}
-            </div>
-          )
-
-        default:
-          return
-      }
-    })();
-    return res;
-  });
-};
 
 // Display the title, date, and content of the Post
 const PostBody = ({ page }) => {
