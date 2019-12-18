@@ -42,6 +42,7 @@ module.exports = {
       options: {
         name: `Estate in Olanda`,
         short_name: `Olanda`,
+        lang: 'nl',
         start_url: `/`,
         background_color: `#3abcda`,
         theme_color: `#3abcda`,
