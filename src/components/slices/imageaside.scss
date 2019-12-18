@@ -18,8 +18,8 @@
 .img-aside div:first-child {
     position: absolute;
     left: -2000px;
-    -webkit-transition: left 1s;
-    transition: left 1s;
+    -webkit-transition: left 1s ease-out 0.2s;
+    transition: left 1s ease-out 0.2s;
 }
 
 .in-view div:first-child {
@@ -30,8 +30,8 @@
 .img-aside div:last-child {
     position: absolute;
     right: -2000px;
-    -webkit-transition: right 1s;
-    transition: right 1s;
+    -webkit-transition: right 1s ease-out 0.2s;
+    transition: right 1s ease-out 0.2s;
 }
 
 .in-view div:last-child {
