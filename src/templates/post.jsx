@@ -6,7 +6,7 @@ import SocialShare from '../components/socialShare';
 import HeaderNav from '../components/headernav';
 import CommentForm from '../components/commentform';
 import Comments from '../components/comments';
-import MapContainer from '../components/slices/maps';
+import PostSlices from '../components/PostSlices';
 import '../styles/app.scss';
 
 const Post = ({ data: { prismicPost } }) => {
@@ -42,7 +42,7 @@ const Post = ({ data: { prismicPost } }) => {
           <div className="social-share">
             <SocialShare url={data.social_url.url}/>
           </div>
-          <MapContainer />
+          <PostSlices slices={data.body}/>
         </article> 
         <CommentForm id={pageId} />
         <Comments id={pageId} />
@@ -92,6 +92,7 @@ export const pageQuery = graphql`
         body {
           ... on PrismicPostBodyMap {
             id
+            slice_type
             primary {
               shop_location {
                 latitude

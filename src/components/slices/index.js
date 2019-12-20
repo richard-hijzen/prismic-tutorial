@@ -6,5 +6,6 @@ import ArticleList from "./articleList"
 import ImageAside from "./imageAside"
 import CTAFeature from "./ctaFeature"
 import CenteredText from "./centeredText"
+import MapContainer from "./maps"
 
-export { ImageCaption, Quote, Text, ImageGallery, ArticleList, ImageAside, CTAFeature, CenteredText }
+export { ImageCaption, Quote, Text, ImageGallery, ArticleList, ImageAside, CTAFeature, CenteredText, MapContainer }

@@ -1,5 +1,5 @@
 import React from "react";
-import { ImageGallery, Text, ArticleList, Quote, ImageAside, CTAFeature, CenteredText, ImageCaption } from "./slices"
+import { ImageGallery, Text, ArticleList, Quote, ImageAside, CTAFeature, CenteredText, ImageCaption, MapContainer } from "./slices"
 
 // Sort and display the different slice options
 const PostSlices = ({ slices }) => {
@@ -64,6 +64,13 @@ const PostSlices = ({ slices }) => {
                         {<ImageCaption slice={slice} />}
                         </div>
                     )
+
+                case "map":
+                  return (
+                    <section key={index} className="homepage-slice-wrapper">
+                      <MapContainer slice={slice} />
+                    </section>
+                  )
   
           default:
             return
