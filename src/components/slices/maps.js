@@ -1,5 +1,5 @@
 import React from 'react';
-import { Map, GoogleApiWrapper } from 'google-maps-react';
+import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 
 export const MapContainer = (props) => {
     const lat = props.slice.primary.shop_location.latitude;
@@ -13,7 +13,12 @@ export const MapContainer = (props) => {
                 className={'map'}
                 zoom={14}
                 initialCenter={{ lat: lat, lng: lng}}
-            />
+            >
+                <Marker
+                    title={'The marker`s title will appear as a tooltip.'}
+                    name={'SOMA'}
+                    position={{lat: lat, lng: lng}} />
+            </Map>
         </div>
     )
 }
