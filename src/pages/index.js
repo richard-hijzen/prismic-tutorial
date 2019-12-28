@@ -4,7 +4,6 @@ import HeaderNav from "../components/headernav"
 import PostSlices from "../components/PostSlices"
 import Footer from "../components/footer"
 import HelmComp from '../components/helmcomp';
-import "../styles/bootstrap/bootstrap.min.css"
 import "../styles/app.scss"
 import "../styles/slices/listofarticles.scss"
 

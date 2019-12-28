@@ -95,6 +95,14 @@ export default function HelmComp({home,article,title,description,fb_type,fb_titl
             <meta name="twitter:image:alt" content={twitter_alt_image} />
             <meta name="twitter:card" content={twitter_card}></meta>
             <link
+              rel="preload"
+              href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+              crossorigin="anonymous"
+              as="style"
+              onload="this.onload=null;this.rel='stylesheet'"
+            />
+            <link
             rel="preload" 
             href="https://fonts.googleapis.com/css?family=Calibre:300,400,400i,500,700|Source+Sans+Pro:300,400,400i,700&amp;display=swap" 
             as="style"
