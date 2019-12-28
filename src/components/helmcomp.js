@@ -83,6 +83,17 @@ export default function HelmComp({home,article,title,description,fb_type,fb_titl
     
     return (
         <Helmet htmlAttributes={{ lang : 'nl-NL' }}>
+            <title>{title}</title>
+            <meta name="description" content={description} />
+            <meta property="og:type" content={fb_type} />
+            <meta property="og:title" content={fb_title} />
+            <meta property="og:description" content={fb_description} />
+            <meta property="og:image" content={fb_image} />
+            <meta property="og:url" content={`https://lovecode.nl${fb_url}/`} />
+            <meta property="og:site_name" content={fb_site_name} />
+            <meta property="fb:app_id" content="543581336427027" />
+            <meta name="twitter:image:alt" content={twitter_alt_image} />
+            <meta name="twitter:card" content={twitter_card}></meta>
             <link
             rel="preload" 
             href="https://fonts.googleapis.com/css?family=Calibre:300,400,400i,500,700|Source+Sans+Pro:300,400,400i,700&amp;display=swap" 
@@ -109,18 +120,6 @@ export default function HelmComp({home,article,title,description,fb_type,fb_titl
             />
             {home && <script type="application/ld+json">{JSON.stringify(schemaOrgWebPage)}</script>}
             {article && <script type="application/ld+json">{JSON.stringify(schemaArticle)}</script>}
-            <title>{title}</title>
-            <meta name="description" content={description} />
-            <meta property="og:type" content={fb_type} />
-            <meta property="og:title" content={fb_title} />
-            <meta property="og:description" content={fb_description} />
-            <meta property="og:image" content={fb_image} />
-            <meta property="og:url" content={`https://lovecode.nl${fb_url}/`} />
-            <meta property="og:site_name" content={fb_site_name} />
-            <meta property="fb:app_id" content="543581336427027" />
-            <meta name="twitter:image:alt" content={twitter_alt_image} />
-            <meta name="twitter:card" content={twitter_card}></meta>
-            
         </Helmet>
     );
 };
