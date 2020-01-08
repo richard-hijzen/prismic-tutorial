@@ -1,5 +1,6 @@
 import React from 'react';
-import { GoogleMap, LoadScript } from '@react-google-maps/api'
+import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api'
+import CustomMarker from '../../../static/mapsicon.png'
 
 export const MapContainer = (props) => {
     const lat = props.slice.primary.shop_location.latitude;
@@ -17,7 +18,10 @@ export const MapContainer = (props) => {
                                     display: 'flex'}}
                 center={{lat: lat, lng: lng}}
                 zoom={10}
-            >    
+            >
+                <Marker
+                    position={{lat:lat, lng:lng}}
+                    icon={CustomMarker} />    
             </GoogleMap>
             </LoadScript>
         </>
