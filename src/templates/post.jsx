@@ -69,7 +69,13 @@ export const pageQuery = graphql`
         twitter_card
         social_description
         social_image {
-          url
+          localFile {
+            childImageSharp {
+              original {
+                src
+              }
+            }
+          }
         }
         twitter_image_alt_name {
           text
