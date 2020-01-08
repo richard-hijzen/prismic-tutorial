@@ -13,6 +13,8 @@ export const MapContainer = (props) => {
             >
             <GoogleMap
                 id='example-map'
+                mapContainerStyle={{height: 400,
+                                    display: 'flex'}}
                 center={{lat: lat, lng: lng}}
                 zoom={10}
             >    
